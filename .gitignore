@@ -1,0 +1,7 @@
+.history
+.sass-cache
+.tmp
+.vscode
+node_modules
+development/assets/*
+oldProject

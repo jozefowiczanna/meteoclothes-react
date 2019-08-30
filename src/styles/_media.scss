@@ -1,0 +1,184 @@
+// base
+@media screen and (min-width: 700px) {
+	.wrapper {
+		padding: 0 2rem;
+	}
+}
+
+// nav
+@media screen and (min-width: 500px) {
+	.nav-menu {
+		justify-content: flex-end;
+	}
+}
+
+// about
+@media screen and (min-width: 500px) {
+
+	.h1-big {
+		font-size: 3.5rem;
+	}
+	.h2-big {
+		font-size: 1.9rem;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.logo-mobile {
+		width: 60%;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	.h1-big, .h2-big {
+		text-align: left;
+	}
+
+	.about-holder {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.about-text {
+		max-width: 450px;
+	}
+
+	.btn-cta-holder {
+		margin-top: 3rem;
+	}
+}
+
+// settings
+@media screen and (min-width: 500px) {
+	.sethow {
+		.plr {
+			padding: 0 1rem;
+		}
+	}
+
+	.con-label {
+		display: inline;
+		margin-right: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.sethow {
+		h2 {
+			font-size: 2rem;
+		}
+		.plr {
+			padding: 0 2rem;
+		}
+	}
+
+	.card {
+		font-size: 1rem;
+	}
+
+	.card-header {
+		padding: 1rem 2rem;
+	}
+
+	.condition-text-nr {
+		display: inline;
+		margin-right: 0.5rem;
+	}
+
+	.list-item {
+		padding: 0.7rem 2rem;
+	}
+
+	.add {
+		padding: 2rem;
+	}
+
+	.add-row {
+		display: flex;
+		align-items: baseline;
+		margin-bottom: 0.6rem;
+	}
+
+	.boxround {
+		font-size: 1rem;
+		flex-wrap: nowrap;
+		padding: 2rem;
+	}
+
+	.boxround-select-label {
+		margin-bottom: 0;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.sethow {
+		padding: 5rem 0;
+	}
+	
+	.con {
+		padding: 5rem 0 7rem;
+	}
+}
+
+// conditions
+@media screen and (min-width: 550px) {
+	.con-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		font-size: 2rem;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.con-header {
+		font-size: 2.5rem;
+	}
+}
+
+// forecast
+@media screen and (min-width: 500px) {
+	.card-weather {
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.table-forecast .td {
+	  padding: 0.7rem 2rem;
+	}
+
+	.card-take {
+		padding: 2rem;
+	}
+
+	.card-weather {
+		font-size: 1rem;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.pair {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.card-weather {
+		width: 55%;
+		margin-bottom: 0;
+	}
+
+	.card-take {
+		width: 42%;
+	}
+}
+
+
+
+// footer
+@media screen and (min-width: 500px) {
+	.footer .name {
+		display: inline;
+	}
+}
