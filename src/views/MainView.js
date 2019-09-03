@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import About from "components/About/About";
 import Nav from "components/Nav/Nav";
 import HowView from "views/HowView";
-import WhereView from "views/WhereView";
 import ConditionsView from "views/ConditionsView";
+import ForecastView from "views/ForecastView";
 import SaveModal from "components/SaveModal/SaveModal";
 import Form from "components/Form/Form";
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ const MainView = ({ isNavOpen, closeNav }) => (
           <Route exact path="/" component={About} />
           <Route path="/how" component={HowView} />
           <Route path="/conditions" component={ConditionsView} />
-          <Route path="/where" component={WhereView} />
+          <Route path="/forecast" component={ForecastView} />
         </Switch>
         <SaveModal />
         <Form />
