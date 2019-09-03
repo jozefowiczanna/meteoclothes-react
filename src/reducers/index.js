@@ -3,6 +3,8 @@ import {
   REMOVE_ITEM,
   ADD_ITEM,
   TOGGLE_MODAL,
+  TOGGLE_NAV,
+  CLOSE_NAV,
 } from 'actions';
 
 const defRange = {
@@ -23,26 +25,27 @@ const defClothes = {
 const initialState = {
   range: {...defRange},
   clothes: {...defClothes},
-  isFormOpen: false,
-  defClothes: {
-    "Zimno": ["czapka ", "kurtka zimowa", "buty zimowe", ""],
-    "Umiarkowanie": ["lekka czapka", "", "płaszcz"],
-    "Ciepło": ["kapelusz", "krótkie ", "sandały"],
-    "Wiatr": ["nauszniki", "kurtka "],
-    "Deszcz": ["parasol", "kalosze"]
-  },
+  isNavOpen: false,
   isSaveModalOpen: false,
   isFormModalOpen: false,
-  counter: 11,
 }
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_MODAL:
-      console.log(action.payload)
+    case TOGGLE_NAV:
       return {
         ...state,
-        [action.payload.whichModal]: !state[action.payload.whichModal],
+        isNavOpen: !state.isNavOpen,
+      };
+    case CLOSE_NAV:
+      return {
+        ...state,
+        isNavOpen: false,
+      };
+    case TOGGLE_MODAL:
+      return {
+        ...state,
+        [action.payload.modalState]: !state[action.payload.modalState],
       };
     case CHANGE_RANGE:
       return {
@@ -68,10 +71,8 @@ const rootReducer = (state = initialState, action) => {
       const item = action.payload.item;
       const newClothes = {...state.clothes};
       const row = [...state.clothes[action.payload.category]];
-      console.log(action.payload.category)
       row.push(item)
       newClothes[category] = row
-      console.log(newClothes)
       return {
         ...state,
         clothes: newClothes

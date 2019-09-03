@@ -1,5 +1,5 @@
 import React from 'react';
-import ConditionGroup from '../../components/ConditionGroup/ConditionGroup';
+import ConditionGroup from 'components/ConditionGroup/ConditionGroup';
 
 const ConditionsView = () => (
     <ConditionGroup />

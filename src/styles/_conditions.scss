@@ -1,7 +1,3 @@
-.con {
-	padding: 3rem 0 5rem;
-}
-
 .con-header {
 	font-size: 1.8rem;
 	padding: 0 1rem;
@@ -103,7 +99,7 @@ $con-5-list-hover: hsla(198, 70%, 88%, 1);
 			&:hover {
 				background-color: $list-hover;
       }
-      animation: appear .25s ease;
+      animation: appear .15s ease;
     }
 	}
 }

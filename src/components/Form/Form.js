@@ -5,6 +5,7 @@ import Button from "../Button/Button";
 import CloseButton from "components/CloseButton/CloseButton";
 import Heading from "components/Heading/Heading";
 import Modal from "components/Modal/Modal";
+import Input from 'components/Input/Input';
 import { Formik } from "formik";
 import { changeRange as changeRangeAction } from "actions";
 import { toggleModal as toggleModalAction } from "../../actions";
@@ -27,21 +28,6 @@ const StyledForm = styled.form`
 const StyledFormRow = styled.div`
   width: 100%;
   margin-bottom: 5px;
-`;
-
-const StyledLabel = styled.label``;
-
-const StyledInput = styled.input`
-  outline: none;
-  margin: 0 10px;
-  border: none;
-  border: ${({ dataError }) =>
-    !dataError ? "1px solid #a9a9a9" : "1px solid red"};
-  border-radius: 4px;
-  width: 45px;
-  padding: 5px;
-  font-size: inherit;
-  text-align: center;
 `;
 
 const StyledSpan = styled.span`
@@ -128,8 +114,10 @@ class Form extends Component {
             }) => (
               <StyledForm onSubmit={handleSubmit}>
                 <StyledFormRow>
-                  <StyledLabel htmlFor="tempmin">Min. temperatura</StyledLabel>
-                  <StyledInput
+                  <label htmlFor="tempmin">Min. temperatura</label>
+                  <Input
+                    narrow
+                    autoComplete="off"
                     dataError={errors.tempmin ? true : false}
                     type="tempmin"
                     name="tempmin"
@@ -146,8 +134,10 @@ class Form extends Component {
                 </StyledFormRow>
 
                 <StyledFormRow>
-                  <StyledLabel htmlFor="tempmax">Max. temperatura</StyledLabel>
-                  <StyledInput
+                  <label htmlFor="tempmax">Max. temperatura</label>
+                  <Input
+                    narrow
+                    autoComplete="off"
                     dataError={errors.tempmax ? true : false}
                     type="tempmax"
                     name="tempmax"
@@ -164,10 +154,12 @@ class Form extends Component {
                 </StyledFormRow>
 
                 <StyledFormRow>
-                  <StyledLabel htmlFor="windmin">
+                  <label htmlFor="windmin">
                     Prędkość wiatru powyżej
-                  </StyledLabel>
-                  <StyledInput
+                  </label>
+                  <Input
+                    narrow
+                    autoComplete="off"
                     dataError={errors.windmin ? true : false}
                     type="windmin"
                     name="windmin"
@@ -184,10 +176,12 @@ class Form extends Component {
                 </StyledFormRow>
 
                 <StyledFormRow>
-                  <StyledLabel htmlFor="rainmin">
+                  <label htmlFor="rainmin">
                     Szansa opadów powyżej
-                  </StyledLabel>
-                  <StyledInput
+                  </label>
+                  <Input
+                    narrow
+                    autoComplete="off"
                     dataError={errors.rainmin ? true : false}
                     type="rainmin"
                     name="rainmin"

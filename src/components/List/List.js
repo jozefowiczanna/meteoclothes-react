@@ -1,57 +1,37 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import ListItem from './ListItem';
-import { removeItem as removeItemAction } from 'actions';
-import styled, { css } from 'styled-components';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import ListItem from "./ListItem";
+import { removeItem as removeItemAction } from "actions";
 
-const StyledHolder = styled.div`
-  opacity: ${({fade}) => fade ? '0' : '0.8'};
-  margin-top: ${({fade}) => fade ? '-25px' : '0'};
-  transition: 0.5s;
-`;
+const List = ({ clothes, category, removeItem }) => {
+  const list = clothes[category];
 
-class List extends Component {
-  state = {
-    fade: false
-  }
-
-  fadeOut = () => {
-    this.setState({ fade: true })
-  }
-
-  render() {
-    const { clothes, category, removeItem } = this.props;
-    const cl = clothes[category];
-
-    return (
-      <ul className="list-con" data-con-list="1">
-      {
-        cl.map((item, index) => {
-          return (
-            <StyledHolder fade={this.state.fade && 'fade'} key={index}>
-              <ListItem item={item}>
-                <button onClick={() => {
-                    this.fadeOut();
-                    setTimeout(() => {
-                      return removeItem(category, index)
-                    }, 500)
-                  }}
-                  type="button" className="remove-btn">
-                  <i className="fas fa-minus-circle"></i>
-                </button>
-              </ListItem>
-            </StyledHolder>
-          )
-        })
-      }
+  return (
+    <ul className="list-con" data-con-list="1">
+      {list.map((item, index) => {
+        return (
+          <ListItem item={item}>
+            <button
+              onClick={() => removeItem(category, index)}
+              type="button"
+              className="remove-btn"
+            >
+              <i className="fas fa-minus-circle"></i>
+            </button>
+          </ListItem>
+        );
+      })}
     </ul>
-    )
-  }
-}
-const mapStateToProps = ({clothes}) => ({clothes});
+  );
+};
 
-const mapDispatchToProps = (dispatch) => ({
+const mapStateToProps = ({ clothes }) => ({ clothes });
+
+const mapDispatchToProps = dispatch => ({
   removeItem: (category, id) => dispatch(removeItemAction(category, id))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);

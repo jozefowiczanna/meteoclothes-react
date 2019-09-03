@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import List from '../List/List';
-import Inputs from '../Inputs/Inputs';
+// import Inputs from '../Inputs/Inputs';
 import Icon from 'components/Icon/Icon';
-import editIcon from 'assets/icons/edit.svg';
+import EditIcon from 'components/EditIcon/EditIcon';
 import styled from 'styled-components';
+import Input from 'components/Input/Input';
 import { toggleModal as toggleModalAction } from 'actions';
+import { addItem as addItemAction } from 'actions';
 
 import arrowdownBlue from 'assets/icons/weather/colored/arrowdown-blue.svg';
 import arrowupBlue from 'assets/icons/weather/colored/arrowup-blue.svg';
@@ -55,32 +57,20 @@ const svgPaths = {
   windGray,
 }
 
-console.log(svgPaths['cloudSnow']);
-
-const StyledDescription = styled.div`
-
+const StyledWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
 `;
 
-const StyledEditIcon = styled.button`
-  display: block;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-image: url(${editIcon});
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 60% 60%;
-  border: 2px solid #808080;
-  margin-left: auto;
-  outline: none;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: 0.2s all;
+const InputWrapper = styled.div`
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+`;
 
-  &:hover {
-    opacity: 1;
-  }
+const StyledLabel = styled.div`
+	display: inline-block;
+	flex-shrink: 0;
 `;
 
 class Condition extends Component {
@@ -88,15 +78,18 @@ class Condition extends Component {
     value: "1"
   }
 
+  inputRef = React.createRef();
+
   render() {
 
-    const { nr, name, descriptions, icons, unit, inputGroup, toggleModal, range } = this.props;
+    const { nr, name, descriptions, icons, unit, inputGroup, toggleModal, range, category, addItem } = this.props;
     const val = range[inputGroup];
     const val2 = range["tempmax"];
+
     
     return (
       <section className="con" id={`section-con-${nr}`}>
-        <div className="wrapper">
+        <StyledWrapper>
           <div className="con-header">
             <div>{name}</div>
             <div className="icons-group">
@@ -107,26 +100,46 @@ class Condition extends Component {
                   `-${val2}°C`
                 }
               </span>
-              <Icon secondary icon={svgPaths[icons[1]]} />
+              {icons[1] && <Icon secondary icon={svgPaths[icons[1]]} />}
             </div>
           </div>
     
           <div className="card js-con">
             <div className="card-header">
-              <StyledDescription>
+              <div>
                 {`${descriptions[0]} ${val} ${unit}`}
                 {nr === 2 && ` ${descriptions[1]} ${val2} ${unit}`}
-              </StyledDescription>
-              <StyledEditIcon onClick={() => toggleModal("isFormModalOpen")} src={editIcon} alt="edytuj warunki" />
+              </div>
+              <EditIcon onClick={() => toggleModal("isFormModalOpen")} alt="edytuj warunki" />
             </div>
     
             <div className="card-body">
               <List category={name} />
-              <Inputs category={name} />
+              <InputWrapper>
+                <StyledLabel htmlFor="select-clothes">
+                  Dodaj własne:
+                </StyledLabel>
+                  <Input
+                    type="text"
+                    maxLength="50"
+                    ref={this.inputRef}
+                    pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+                    data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka"
+                  />
+                  <button
+                    onClick={() => {
+                      addItem(name, this.inputRef.current.value);
+                    }}
+                    type="button"
+                    className="add-btn js-add-btn-input"
+                  >
+                    <i className="fas fa-plus-square"></i>
+                  </button>
+              </InputWrapper>
             </div>
           </div>
     
-        </div>
+        </StyledWrapper>
       </section>
     );
   }
@@ -136,6 +149,7 @@ const mapStateToProps = ({range}) => ({range});
 
 const mapDispatchToProps = dispatch => ({
   toggleModal: whichModal => dispatch(toggleModalAction(whichModal)),
+  addItem: (category, item) => dispatch(addItemAction(category, item)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Condition);

@@ -16,10 +16,11 @@ const How = () => (
     <StyledSection id="how">
       <StyledWrapper>
           <Heading>Jak to działa?</Heading>
-          <p>Do dyspozycji masz pięć warunków, których zakres wartości możesz zmieniać według własnego uznania. Pierwsze trzy dotyczą temperatury, czwarty prędkości wiatru, piąty szansy opadów w procentach.</p>
+          <p>Do dyspozycji masz pięć warunków atmosferycznych, których zakres wartości możesz zmieniać według własnego uznania. Pierwsze trzy dotyczą temperatury, czwarty prędkości wiatru, piąty szansy opadów w procentach.</p>
           <p>Do każdego warunku możesz dodać listę ubrań, które chcesz założyć jeśli dany warunek zostanie spełniony.</p>
-          <p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży. Liczba miast jest na razie ograniczona, głównie do stolic państw europejskich.</p>
-          <p>Po kliknięciu "sprawdź prognozę" pojawi się 8-dniowa prognoza wraz z listą ubrań, które spełniają określone warunki.</p>
+          <p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży.</p>
+          <p>Jeśli chcesz zapisać ustawienia w pamięci przeglądarki lub zresetować je do wartości domyślnych, wybierz z menu opcję Zapisz/resetuj</p>
+          <p>Na koniec nie pozostanie Ci nic innego jak wybranie z menu kategorii <strong>Prognoza</strong>. "sprawdź prognozę" pojawi się 8-dniowa prognoza wraz z listą ubrań, które spełniają określone warunki.</p>
       </StyledWrapper>
     </StyledSection>
 );
