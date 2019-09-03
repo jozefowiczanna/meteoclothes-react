@@ -2,15 +2,17 @@ import React from "react";
 import Input from "components/Input/Input";
 import Option from "components/Option/Option";
 import Heading from "components/Heading/Heading";
-import Button from "components/Button/Button";
 import citiesGeo from "data/citiesGeo";
 import styled from "styled-components";
+import Button from "components/Button/Button";
+import { connect } from 'react-redux';
+import { getForecast as getForecastAction } from 'actions';
 
 const StyledWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  `;
 
 const StyledBox = styled.div`
   display: flex;
@@ -23,7 +25,7 @@ const StyledBox = styled.div`
   margin: 40px 0 70px;
   width: 100%;
   max-width: 700px;
-`;
+  `;
 
 const StyledHeading = styled(Heading)`
   align-self: flex-start;
@@ -35,9 +37,9 @@ const StyledInput = styled(Input)`
 
 const StyledLabel = styled.label`
   flex-shrink: 0;
-`;
-
-const Where = () => (
+  `;
+  
+const Where = ({getForecast}) => (
   <StyledWrapper id="where">
     <StyledHeading>Dokąd pojedziesz?</StyledHeading>
     <p>
@@ -53,8 +55,21 @@ const Where = () => (
         })}
       </StyledInput>
     </StyledBox>
-    <Button data-target="#forecast">Sprawdź prognozę</Button>
+    <Button onClick={() => {
+        const cityId = document.getElementById('select-city').value;
+        const cityData = citiesGeo.filter(item => item.value === cityId)[0];
+        const { name, lat, lon } = cityData;
+        getForecast(name, lat, lon)
+      }}
+      data-target="#forecast"
+    >
+        Sprawdź prognozę
+    </Button>
   </StyledWrapper>
 );
 
-export default Where;
+const mapDispatchToProps = dispatch => ({
+  getForecast: (name, lat, lon) => dispatch(getForecastAction(name, lat, lon)),
+});
+
+export default connect(null, mapDispatchToProps)(Where);

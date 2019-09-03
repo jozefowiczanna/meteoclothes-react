@@ -5,6 +5,9 @@ import {
   TOGGLE_MODAL,
   TOGGLE_NAV,
   CLOSE_NAV,
+  GET_FORECAST_REQUEST,
+  GET_FORECAST_SUCCESS,
+  GET_FORECAST_FAILURE,
 } from 'actions';
 
 const defRange = {
@@ -25,9 +28,21 @@ const defClothes = {
 const initialState = {
   range: {...defRange},
   clothes: {...defClothes},
-  isNavOpen: false,
+  city: 'Amsterdam',
   isSaveModalOpen: false,
   isFormModalOpen: false,
+  data: [
+    {
+      clouds: "49%",
+      dailySummary: "Średnie zachmurzenie w ciągu dnia.",
+      humidity: "70%",
+      icon: "partly-cloudy-day",
+      rainSnow: "15%",
+      tempDay: "22°C",
+      tempNight: "15°C",
+      windSpeed: "21 km/h",
+    },
+  ],
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -67,6 +82,7 @@ const rootReducer = (state = initialState, action) => {
       };
     }
     case ADD_ITEM:
+    {
       const category = action.payload.category;
       const item = action.payload.item;
       const newClothes = {...state.clothes};
@@ -77,6 +93,15 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         clothes: newClothes
       };
+    }
+    case GET_FORECAST_SUCCESS:
+    {
+      return {
+        ...state,
+        city: action.payload.name,
+        data: action.payload.outputData,
+      };
+    }
     default:
       return state;
   }

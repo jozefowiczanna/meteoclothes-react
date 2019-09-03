@@ -103,17 +103,9 @@ const HeadingBig = styled.h3`
 const dayNr = 1;
 const weekday = 'Wtorek';
 const date = '03.09.2019';
-const city = 'Amsterdam';
-const tempDay = 19;
-const tempNight = 15;
-const dailySummary = 'Średnie zachmurzenie w ciągu dnia.';
-const clouds = 59;
-const humidity = 70;
-const rainSnow = 14;
-const windSpeed = 19;
 
 
-const Day = () => (
+const Day = ({ city, dailySummary, tempDay, tempNight, clouds, humidity, rainSnow, windSpeed, icon}) => (
   <StyledWrapper>
     <CardWeather>
       <CardHeader>
@@ -121,10 +113,11 @@ const Day = () => (
           <div>Dzień {dayNr}</div>
           <div>{weekday} {date}</div>
         </DateGroup>
+        {console.log(city)}
         <IconGroup>
           <div>
             <City>{city}</City>
-            <Temp>{tempDay}°C</Temp>
+            <Temp>{tempDay}</Temp>
           </div>
           <StyledBigIcon />
         </IconGroup>
@@ -135,27 +128,27 @@ const Day = () => (
           <tbody>
             <TableRow>
               <CellLeft>Temperatura w dzień</CellLeft>
-              <CellRight>{tempDay}°C</CellRight>
+              <CellRight>{tempDay}</CellRight>
             </TableRow>
             <TableRow>
               <CellLeft>Temperatura w nocy</CellLeft>
-              <CellRight>{tempNight}°C</CellRight>
+              <CellRight>{tempNight}</CellRight>
             </TableRow>
             <TableRow>
               <CellLeft>Zachmurzenie</CellLeft>
-              <CellRight>{clouds}%</CellRight>
+              <CellRight>{clouds}</CellRight>
             </TableRow>
             <TableRow>
               <CellLeft>Wilgotność</CellLeft>
-              <CellRight>{humidity}%</CellRight>
+              <CellRight>{humidity}</CellRight>
             </TableRow>
             <TableRow>
               <CellLeft>Szansa opadów</CellLeft>
-              <CellRight>{rainSnow}%</CellRight>
+              <CellRight>{rainSnow}</CellRight>
             </TableRow>
             <TableRow>
               <CellLeft>Prędkość wiatru</CellLeft>
-              <CellRight>{windSpeed} km/h</CellRight>
+              <CellRight>{windSpeed}</CellRight>
             </TableRow>
           </tbody>
         </Table>

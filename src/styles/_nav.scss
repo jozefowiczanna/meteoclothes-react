@@ -12,11 +12,12 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 	position: fixed;
 	width: $sidebar-w;
 	height: 100%;
-	right: -$sidebar-w;
+	right: 0;
 	background: #151719;
 	font-family: sans-serif;
 	transition: all 0.3s;
-	z-index: 999;
+  z-index: 999;
+  transform: translateX(100%);
 	
 	ul {
 		margin: 0;
@@ -116,7 +117,7 @@ $bb: 1px solid rgba(100, 100, 100, 0.4);
 }
   
 .sidebar.active {
-	right: 0;
+	transform: translateX(0)
 }
 
 .sidebar.hidden {

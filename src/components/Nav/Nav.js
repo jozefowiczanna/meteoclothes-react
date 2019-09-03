@@ -30,7 +30,6 @@ class Nav extends React.Component {
             <a
               href="#save"
               onClick={e => {
-                e.preventDefault();
                 toggleModal("isSaveModalOpen");
               }}
             >
