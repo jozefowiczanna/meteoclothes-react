@@ -2,26 +2,40 @@ import React from "react";
 import LinkItem from "../LinkItem/LinkItem";
 import {
   toggleModal as toggleModalAction,
-  toggleNav as toggleNavAction,
-  closeNav as closeNavAction,
 } from "actions";
 import { connect } from "react-redux";
 
+
 class Nav extends React.Component {
+  state = {
+    isNavOpen: false,
+  }
+
+  toggleNav = () => {
+    this.setState(prevState => ({
+      isNavOpen: !prevState.isNavOpen
+    }))
+  }
+
+  closeNav = () => {
+    this.setState({
+      isNavOpen: false
+    })
+  }
   
   render() {
-    const { toggleModal, toggleNav, isNavOpen, closeNav } = this.props;
-    const isActive = isNavOpen ? "active" : null;
+    const { toggleModal } = this.props;
+    const isActive = this.state.isNavOpen ? "active" : null;
 
     return (
       <header>
         <nav className={"sidebar " + isActive}>
-          <div className="toggle-btn" onClick={(e) => toggleNav(e.target)}>
+          <div className="toggle-btn" onClick={() => this.toggleNav()}>
             <div className="hamburger-icon">
               <div className="hamburger"></div>
             </div>
           </div>
-          <ul onClick={closeNav}>
+          <ul onClick={this.closeNav}>
             <LinkItem href="/">O projekcie</LinkItem>
             <LinkItem href="/how">Jak to działa?</LinkItem>
             <LinkItem href="/conditions">
@@ -57,8 +71,6 @@ const mapStateToProps = ({ isNavOpen }) => ({ isNavOpen });
 
 const mapDispatchToProps = dispatch => ({
   toggleModal: modalState => dispatch(toggleModalAction(modalState)),
-  toggleNav: e => dispatch(toggleNavAction(e)),
-  closeNav: () => dispatch(closeNavAction()),
 });
 
 export default connect(

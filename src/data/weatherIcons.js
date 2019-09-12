@@ -1,4 +1,6 @@
 //  ikony pogody - główna wartość obiektów odpowiada nazwie z API; wartość "icon" odpowiada nazwie grafiki
+
+
 const weatherIcons = {
 	"clear-day" : {
 		icon : "sun",

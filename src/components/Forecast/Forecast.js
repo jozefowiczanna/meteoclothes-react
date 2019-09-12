@@ -19,6 +19,7 @@ const Forecast = ({ data, city }) => (
           {...item}
           key={index}
           city={city}
+          dayNr={index}
         />
       ))
     }

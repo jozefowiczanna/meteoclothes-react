@@ -11,11 +11,17 @@ const StyledList = styled.ul`
   padding: 0 0 16px 16px;
 `;
 
-const ListTake = () => (
+const ListTake = ({ clothes, description }) => (
   <>
-    <HeadingSmall>Temperatura powyżej 18°C</HeadingSmall>
+    <HeadingSmall>{description}</HeadingSmall>
     <StyledList>
-      <ListTakeItem />
+      {
+        clothes.map((item, index) => {
+          return (
+            <ListTakeItem item={item} key={index}/>
+          )
+        })
+      }
     </StyledList>
   </>
 );

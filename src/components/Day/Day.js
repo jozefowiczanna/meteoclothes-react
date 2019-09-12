@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
-import cloudSun from 'assets/icons/weather/colored/clouds-sun.svg';
 import ListTake from 'components/ListTake/ListTake';
+import Icon from 'components/Icon/Icon';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -46,17 +47,6 @@ const Temp = styled.div`
   font-weight: 600;
 `;
 
-const StyledBigIcon = styled.div`
-  display: block;
-  width: 68px;
-  height: 68px;
-  background-image: url(${cloudSun});
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: ${({ secondary }) => secondary ? '85% 85%' : '100% 100%' };
-`;
-
 const Description = styled.div`
   font-weight: 600;
 `;
@@ -90,7 +80,8 @@ const CardTake = styled.div`
   width: 42%;
   padding: 34px;
   box-shadow: 0 10px 20px #cccccc;
-  border-left: 10px solid #c6c6c6;
+  border-left: 10px solid ${({ theme }) => theme["blue1"]};
+  /* border-left: 10px solid #c6c6c6;   */
   border-radius: 5px;
   color: #353535;
   background: #fff;
@@ -100,65 +91,134 @@ const HeadingBig = styled.h3`
   margin-bottom: 34px;
 `;
 
-const dayNr = 1;
-const weekday = 'Wtorek';
-const date = '03.09.2019';
+function getDate(dayNr) {
+	function leadingZero(nr){
+		nr = nr + "";
+		const output = (nr.length === 1) ? "0" + nr : nr;
+		return output;
+	}
+	const weekdays = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+	let date = new Date();
+	date.setDate(date.getDate() + dayNr);
+	const day = leadingZero(date.getDate());
+	const month = leadingZero(date.getMonth() + 1);
+	const year = date.getFullYear();
+	const weekday = weekdays[date.getDay()];
+  const dateInfo = `${weekday} ${day}.${month}.${year}`;
+  return dateInfo;
+}
 
+class Day extends Component {
+  checkCondition(range, tempDay) {
+    if (tempDay < parseInt(range["temp-min"])) {
+      console.log("zimno")
+    } else {
+      console.log("ciepło")
+    }
+  }
 
-const Day = ({ city, dailySummary, tempDay, tempNight, clouds, humidity, rainSnow, windSpeed, icon}) => (
-  <StyledWrapper>
-    <CardWeather>
-      <CardHeader>
-        <DateGroup>
-          <div>Dzień {dayNr}</div>
-          <div>{weekday} {date}</div>
-        </DateGroup>
-        {console.log(city)}
-        <IconGroup>
+  componentDidUpdate() {
+    this.checkCondition(this.props.range, this.props.tempDay)
+  }
+
+  
+  render() {
+    
+    const { city, dailySummary, tempDay, tempNight, clouds, humidity, rainSnow, windSpeed, dayNr, icon, range, clothes } = this.props;
+    
+    console.log(range)
+    
+    return (
+      <StyledWrapper>
+        <CardWeather>
+          <CardHeader>
+            <DateGroup>
+              <div>Dzień {dayNr+1}</div>
+              <div>{getDate(dayNr)}</div>
+            </DateGroup>
+            <IconGroup>
+              <div>
+                <City>{city}{(range, tempDay) => this.checkCondition(range, tempDay)}</City>
+                <Temp>{tempDay}°C</Temp>
+              </div>
+              <Icon icon={icon} big />
+            </IconGroup>
+              <Description>{dailySummary}</Description>
+          </CardHeader>
           <div>
-            <City>{city}</City>
-            <Temp>{tempDay}</Temp>
+            <Table>
+              <tbody>
+                <TableRow>
+                  <CellLeft>Temperatura w dzień</CellLeft>
+                  <CellRight>{tempDay}°C</CellRight>
+                </TableRow>
+                <TableRow>
+                  <CellLeft>Temperatura w nocy</CellLeft>
+                  <CellRight>{tempNight}°C</CellRight>
+                </TableRow>
+                <TableRow>
+                  <CellLeft>Zachmurzenie</CellLeft>
+                  <CellRight>{clouds}%</CellRight>
+                </TableRow>
+                <TableRow>
+                  <CellLeft>Wilgotność</CellLeft>
+                  <CellRight>{humidity}%</CellRight>
+                </TableRow>
+                <TableRow>
+                  <CellLeft>Szansa opadów</CellLeft>
+                  <CellRight>{rainSnow}%</CellRight>
+                </TableRow>
+                <TableRow>
+                  <CellLeft>Prędkość wiatru</CellLeft>
+                  <CellRight>{windSpeed} {'km/h'}</CellRight>
+                </TableRow>
+              </tbody>
+            </Table>
           </div>
-          <StyledBigIcon />
-        </IconGroup>
-          <Description>{dailySummary}</Description>
-      </CardHeader>
-      <div>
-        <Table>
-          <tbody>
-            <TableRow>
-              <CellLeft>Temperatura w dzień</CellLeft>
-              <CellRight>{tempDay}</CellRight>
-            </TableRow>
-            <TableRow>
-              <CellLeft>Temperatura w nocy</CellLeft>
-              <CellRight>{tempNight}</CellRight>
-            </TableRow>
-            <TableRow>
-              <CellLeft>Zachmurzenie</CellLeft>
-              <CellRight>{clouds}</CellRight>
-            </TableRow>
-            <TableRow>
-              <CellLeft>Wilgotność</CellLeft>
-              <CellRight>{humidity}</CellRight>
-            </TableRow>
-            <TableRow>
-              <CellLeft>Szansa opadów</CellLeft>
-              <CellRight>{rainSnow}</CellRight>
-            </TableRow>
-            <TableRow>
-              <CellLeft>Prędkość wiatru</CellLeft>
-              <CellRight>{windSpeed}</CellRight>
-            </TableRow>
-          </tbody>
-        </Table>
-      </div>
-    </CardWeather>
-    <CardTake>
-      <HeadingBig>Zabierz: </HeadingBig>
-      <ListTake />
-    </CardTake>
-  </StyledWrapper>
-);
+        </CardWeather>
+        <CardTake>
+          <HeadingBig>Zabierz: </HeadingBig>
+          {
+            (tempDay < range["tempmin"]*1) &&
+            <ListTake
+              clothes={clothes["Zimno"]}
+              description={`Temperatura poniżej ${range["tempmin"]}°C`}
+            />
+          }
+          {
+            (tempDay >= range["tempmin"]) && (tempDay <= range["tempmax"]) &&
+            <ListTake
+              clothes={clothes["Umiarkowanie"]}
+              description={`Temperatura od ${range["tempmin"]}°C do ${range["tempmax"]}°C`}
+            />
+          }
+          {
+            (tempDay > range["tempmax"]) &&
+            <ListTake
+              clothes={clothes["Ciepło"]}
+              description={`Temperatura powyżej ${range["tempmax"]}°C`}
+            />
+          }
+          {
+            (rainSnow > range["rainmin"]) &&
+            <ListTake
+              clothes={clothes["Deszcz"]}
+              description={`Szansa opadów powyżej ${range["windmin"]}%`}
+            />
+          }
+          {
+            (windSpeed > range["windmin"]) &&
+            <ListTake
+              clothes={clothes["Wiatr"]}
+              description={`Wiatr o prędkości powyżej ${range["windmin"]} km/h`}
+            />
+          }
+        </CardTake>
+      </StyledWrapper>
+    )
+  }
+};
 
-export default Day;
+const mapStateToProps = ({ range, clothes }) => ({ range, clothes });
+
+export default connect(mapStateToProps)(Day);

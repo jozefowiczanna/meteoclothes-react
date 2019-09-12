@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// import { connect } from 'react-redux';
 
 const StyledListItem = styled.li`
   list-style: none;
@@ -15,8 +16,8 @@ const StyledListItem = styled.li`
 	}
 `;
 
-const ListTakeItem = () => (
-  <StyledListItem>kapelusz</StyledListItem>
+const ListTakeItem = ({ item }) => (
+  <StyledListItem>{item}</StyledListItem>
 );
 
 export default ListTakeItem;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import List from '../List/List';
-// import Inputs from '../Inputs/Inputs';
 import Icon from 'components/Icon/Icon';
 import EditIcon from 'components/EditIcon/EditIcon';
 import styled from 'styled-components';
@@ -13,53 +12,51 @@ import arrowdownBlue from 'assets/icons/weather/colored/arrowdown-blue.svg';
 import arrowupBlue from 'assets/icons/weather/colored/arrowup-blue.svg';
 import arrowupGray from 'assets/icons/weather/colored/arrowup-gray.svg';
 import arrowupGreen from 'assets/icons/weather/colored/arrowup-green.svg';
-import cloudDrizzle from 'assets/icons/weather/colored/cloud-drizzle.svg';
-import cloudLightning from 'assets/icons/weather/colored/cloud-lightning.svg';
-import cloudMoon from 'assets/icons/weather/colored/cloud-moon.svg';
-import cloudRain from 'assets/icons/weather/colored/cloud-rain.svg';
-import cloudSnow from 'assets/icons/weather/colored/cloud-snow.svg';
-import cloud from 'assets/icons/weather/colored/cloud.svg';
-import cloudsSun from 'assets/icons/weather/colored/clouds-sun.svg';
-import fog from 'assets/icons/weather/colored/fog.svg';
-import moon50 from 'assets/icons/weather/colored/moon-50.svg';
 import rainCon from 'assets/icons/weather/colored/rain-con.svg';
-import rain from 'assets/icons/weather/colored/rain.svg';
-import sun from 'assets/icons/weather/colored/sun.svg';
+import windCon from 'assets/icons/weather/colored/wind-con.svg';
 import thermometer25 from 'assets/icons/weather/colored/thermometer-25.svg';
 import thermometer50 from 'assets/icons/weather/colored/thermometer-50.svg';
 import thermometer75 from 'assets/icons/weather/colored/thermometer-75.svg';
-import tornado from 'assets/icons/weather/colored/tornado.svg';
-import windCon from 'assets/icons/weather/colored/wind-con.svg';
-import windGray from 'assets/icons/weather/colored/wind-gray.svg';
 
 const svgPaths = {
   arrowdownBlue,
   arrowupBlue,
   arrowupGray,
   arrowupGreen,
-  cloudDrizzle,
-  cloudLightning,
-  cloudMoon,
-  cloudRain,
-  cloudSnow,
-  cloud,
-  cloudsSun,
-  fog,
-  moon50,
   rainCon,
-  rain,
-  sun,
+  windCon,
   thermometer25,
   thermometer50,
   thermometer75,
-  tornado,
-  windCon,
-  windGray,
 }
+
+const StyledSection = styled.section`
+  background-color: ${({theme, colorSet}) => theme[colorSet]['bg']};
+  padding: 5rem 0 7rem;
+`;
 
 const StyledWrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
+`;
+
+const StyledHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Lato';
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: ${({theme, colorSet}) => theme[colorSet]['text']};
+`;
+
+const StyledCard = styled.div`
+  background-color: ${({theme, colorSet}) => theme[colorSet]['bgLight']};
+  box-shadow: ${({theme, colorSet}) => theme[colorSet]['box']};
+  border: 5px solid ${({theme, colorSet}) => theme[colorSet]['border']};
+  border-radius: 5px;
 `;
 
 const InputWrapper = styled.div`
@@ -82,15 +79,15 @@ class Condition extends Component {
 
   render() {
 
-    const { nr, name, descriptions, icons, unit, inputGroup, toggleModal, range, category, addItem } = this.props;
+    const { nr, name, descriptions, icons, unit, inputGroup, colorSet, toggleModal, range, addItem } = this.props;
     const val = range[inputGroup];
     const val2 = range["tempmax"];
 
     
     return (
-      <section className="con" id={`section-con-${nr}`}>
+      <StyledSection colorSet={colorSet}>
         <StyledWrapper>
-          <div className="con-header">
+          <StyledHeader colorSet={colorSet}>
             <div>{name}</div>
             <div className="icons-group">
               <Icon icon={svgPaths[icons[0]]} />
@@ -102,9 +99,9 @@ class Condition extends Component {
               </span>
               {icons[1] && <Icon secondary icon={svgPaths[icons[1]]} />}
             </div>
-          </div>
+          </StyledHeader>
     
-          <div className="card js-con">
+          <StyledCard colorSet={colorSet}>
             <div className="card-header">
               <div>
                 {`${descriptions[0]} ${val} ${unit}`}
@@ -114,7 +111,7 @@ class Condition extends Component {
             </div>
     
             <div className="card-body">
-              <List category={name} />
+              <List category={name} colorSet={colorSet}/>
               <InputWrapper>
                 <StyledLabel htmlFor="select-clothes">
                   Dodaj własne:
@@ -137,10 +134,10 @@ class Condition extends Component {
                   </button>
               </InputWrapper>
             </div>
-          </div>
+          </StyledCard>
     
         </StyledWrapper>
-      </section>
+      </StyledSection>
     );
   }
 }

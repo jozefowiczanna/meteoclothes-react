@@ -6,6 +6,7 @@ export const conditionsStaticData = [
     icons: ['thermometer25', "arrowdownBlue"],
 		unit: "°C",
     inputGroup: "tempmin",
+    colorSet: "cold",
 	},
 	{
 		nr: 2,
@@ -14,6 +15,7 @@ export const conditionsStaticData = [
     icons: ['thermometer50'],
 		unit: "°C",
     inputGroup: "tempmin",
+    colorSet: "mild",
 	},
 	{
 		nr: 3,
@@ -22,6 +24,7 @@ export const conditionsStaticData = [
     icons: ['thermometer75', "arrowupGreen"],
 		unit: "°C",
     inputGroup: "tempmax",
+    colorSet: "warm",
 	},
 	{
 		nr: 4,
@@ -30,14 +33,16 @@ export const conditionsStaticData = [
     icons: ['windCon', "arrowupGray"],
 		unit: "km/h",
     inputGroup: "windmin",
+    colorSet: "wind",
 	},
 	{
 		nr: 5,
-		name: "Deszcz",
+		name: "Opady",
     descriptions: ["Szansa opadów powyżej"],
     icons: ['rainCon', "arrowupBlue"],
 		unit: "%",
 		defClothes: ["parasol", "kalosze"],
     inputGroup: "rainmin",
+    colorSet: "rain",
 	}
 ]

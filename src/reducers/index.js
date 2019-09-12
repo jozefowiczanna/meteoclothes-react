@@ -3,8 +3,6 @@ import {
   REMOVE_ITEM,
   ADD_ITEM,
   TOGGLE_MODAL,
-  TOGGLE_NAV,
-  CLOSE_NAV,
   GET_FORECAST_REQUEST,
   GET_FORECAST_SUCCESS,
   GET_FORECAST_FAILURE,
@@ -47,16 +45,6 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_NAV:
-      return {
-        ...state,
-        isNavOpen: !state.isNavOpen,
-      };
-    case CLOSE_NAV:
-      return {
-        ...state,
-        isNavOpen: false,
-      };
     case TOGGLE_MODAL:
       return {
         ...state,

@@ -7,33 +7,27 @@ import ConditionsView from "views/ConditionsView";
 import ForecastView from "views/ForecastView";
 import SaveModal from "components/SaveModal/SaveModal";
 import Form from "components/Form/Form";
-import { connect } from 'react-redux';
-import { closeNav as closeNavAction } from 'actions';
 
-const MainView = ({ isNavOpen, closeNav }) => (
-    <div onClick={(e) => {
-      if (isNavOpen && !e.target.closest('nav')) {
-        closeNav();
-      }
-    }}>
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'theme/mainTheme';
+
+
+const MainView = () => (
       <BrowserRouter>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={About} />
-          <Route path="/how" component={HowView} />
-          <Route path="/conditions" component={ConditionsView} />
-          <Route path="/forecast" component={ForecastView} />
-        </Switch>
-        <SaveModal />
-        <Form />
+        <ThemeProvider theme={theme}>
+          <>
+            <Nav />
+            <Switch>
+              <Route exact path="/" component={About} />
+              <Route path="/how" component={HowView} />
+              <Route path="/conditions" component={ConditionsView} />
+              <Route path="/forecast" component={ForecastView} />
+            </Switch>
+            <SaveModal />
+            <Form />
+          </>
+        </ThemeProvider>
       </BrowserRouter>
-    </div>
 );
 
-const mapStateToProps = ({ isNavOpen }) => ({ isNavOpen});
-
-const mapDispatchToProps = dispatch => ({
-  closeNav: () => dispatch(closeNavAction()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainView);
+export default MainView;

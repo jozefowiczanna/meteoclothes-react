@@ -1,27 +1,49 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import ListItem from "./ListItem";
-import { removeItem as removeItemAction } from "actions";
+import React from 'react';
+import { connect } from 'react-redux';
+import ListItem from './ListItem';
+import { removeItem as removeItemAction } from 'actions';
+import styled from 'styled-components';
 
-const List = ({ clothes, category, removeItem }) => {
+const StyledList = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 2rem;
+`;
+
+const StyledButton = styled.button`
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-size: 25px;
+  color: #808080;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #e82020;
+  }
+`;
+
+const List = ({ clothes, category, removeItem, colorSet }) => {
   const list = clothes[category];
 
   return (
-    <ul className="list-con" data-con-list="1">
+    <StyledList>
       {list.map((item, index) => {
         return (
-          <ListItem item={item}>
-            <button
+          <ListItem item={item} colorSet={colorSet}>
+            <StyledButton
               onClick={() => removeItem(category, index)}
               type="button"
-              className="remove-btn"
             >
               <i className="fas fa-minus-circle"></i>
-            </button>
+            </StyledButton>
           </ListItem>
         );
       })}
-    </ul>
+    </StyledList>
   );
 };
 

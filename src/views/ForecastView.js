@@ -12,11 +12,6 @@ const StyledWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const getCityData = () => {
-  console.log(citiesGeo);
-  console.log(citiesGeo.filter(item => item.value === "gdansk"))
-}
-
 const ForecastView = () => (
   <>
     <StyledWrapper>
