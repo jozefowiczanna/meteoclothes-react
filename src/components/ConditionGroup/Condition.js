@@ -11,7 +11,7 @@ import { addItem as addItemAction } from 'actions';
 import arrowdownBlue from 'assets/icons/weather/colored/arrowdown-blue.svg';
 import arrowupBlue from 'assets/icons/weather/colored/arrowup-blue.svg';
 import arrowupGray from 'assets/icons/weather/colored/arrowup-gray.svg';
-import arrowupGreen from 'assets/icons/weather/colored/arrowup-green.svg';
+import arrowupYellow from 'assets/icons/weather/colored/arrowup-yellow.svg';
 import rainCon from 'assets/icons/weather/colored/rain-con.svg';
 import windCon from 'assets/icons/weather/colored/wind-con.svg';
 import thermometer25 from 'assets/icons/weather/colored/thermometer-25.svg';
@@ -22,7 +22,7 @@ const svgPaths = {
   arrowdownBlue,
   arrowupBlue,
   arrowupGray,
-  arrowupGreen,
+  arrowupYellow,
   rainCon,
   windCon,
   thermometer25,
@@ -32,7 +32,7 @@ const svgPaths = {
 
 const StyledSection = styled.section`
   background-color: ${({theme, colorSet}) => theme[colorSet]['bg']};
-  padding: 5rem 0 7rem;
+  padding: 80px 0 110px;
 `;
 
 const StyledWrapper = styled.div`
@@ -44,12 +44,17 @@ const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
-  margin-bottom: 1.5rem;
+  padding: 0 15px;
+  margin-bottom: 15px;
   font-family: 'Lato';
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 40px;
   color: ${({theme, colorSet}) => theme[colorSet]['text']};
+`;
+
+const StyledIconsWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledCard = styled.div`
@@ -59,8 +64,15 @@ const StyledCard = styled.div`
   border-radius: 5px;
 `;
 
+const StyledCardHeader = styled.div`
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 30px 30px 15px;
+`;
+
 const InputWrapper = styled.div`
-  padding: 2rem;
+  padding: 30px;
   display: flex;
   align-items: center;
 `;
@@ -68,6 +80,23 @@ const InputWrapper = styled.div`
 const StyledLabel = styled.div`
 	display: inline-block;
 	flex-shrink: 0;
+`;
+
+const StyledAddButton = styled.button`
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  font-size: 30px;
+  color: #808080;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #63b50b;
+  }
 `;
 
 class Condition extends Component {
@@ -89,7 +118,7 @@ class Condition extends Component {
         <StyledWrapper>
           <StyledHeader colorSet={colorSet}>
             <div>{name}</div>
-            <div className="icons-group">
+            <StyledIconsWrapper>
               <Icon icon={svgPaths[icons[0]]} />
               <span>
                 {range[inputGroup]}°C
@@ -98,19 +127,19 @@ class Condition extends Component {
                 }
               </span>
               {icons[1] && <Icon secondary icon={svgPaths[icons[1]]} />}
-            </div>
+            </StyledIconsWrapper>
           </StyledHeader>
     
           <StyledCard colorSet={colorSet}>
-            <div className="card-header">
+            <StyledCardHeader>
               <div>
                 {`${descriptions[0]} ${val} ${unit}`}
                 {nr === 2 && ` ${descriptions[1]} ${val2} ${unit}`}
               </div>
               <EditIcon onClick={() => toggleModal("isFormModalOpen")} alt="edytuj warunki" />
-            </div>
+            </StyledCardHeader>
     
-            <div className="card-body">
+            <div>
               <List category={name} colorSet={colorSet}/>
               <InputWrapper>
                 <StyledLabel htmlFor="select-clothes">
@@ -123,15 +152,14 @@ class Condition extends Component {
                     pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
                     data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka"
                   />
-                  <button
+                  <StyledAddButton
                     onClick={() => {
                       addItem(name, this.inputRef.current.value);
                     }}
                     type="button"
-                    className="add-btn js-add-btn-input"
                   >
                     <i className="fas fa-plus-square"></i>
-                  </button>
+                  </StyledAddButton>
               </InputWrapper>
             </div>
           </StyledCard>

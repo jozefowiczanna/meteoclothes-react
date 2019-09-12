@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const StyledListItem = styled.li`
   list-style: none;
-  margin-bottom: 0.8rem;
+  margin: 0.4rem 0;
   position: relative;
 
   &:before {

@@ -8,7 +8,6 @@ const StyledList = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-  margin-bottom: 2rem;
 `;
 
 const StyledButton = styled.button`
@@ -33,7 +32,7 @@ const List = ({ clothes, category, removeItem, colorSet }) => {
     <StyledList>
       {list.map((item, index) => {
         return (
-          <ListItem item={item} colorSet={colorSet}>
+          <ListItem item={item} colorSet={colorSet} key={`clothes${index}`}>
             <StyledButton
               onClick={() => removeItem(category, index)}
               type="button"

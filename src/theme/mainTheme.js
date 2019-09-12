@@ -10,15 +10,6 @@ export const theme = {
     border: 'hsl(198, 70%, 60%)',
   },
   "mild": {
-    bg: 'hsl(55, 80%, 80%)',
-    box: '0 40px 50px hsl(55, 63%, 35%)',
-    text: 'hsl(53, 64%, 45%)',
-    bgLight: 'hsl(55, 95%, 97%)',
-    list: 'hsl(55, 90%, 90%)',
-    hover: 'hsl(55, 90%, 80%)',
-    border: 'hsl(55, 80%, 50%)',
-  },
-  "warm": {
     bg: 'hsl(88, 63%, 63%)',
     box: '0 40px 50px hsl(88, 55%, 30%)',
     text: 'hsl(88, 73%, 35%)',
@@ -26,6 +17,15 @@ export const theme = {
     list: 'hsl(88, 90%, 90%)',
     hover: 'hsl(88, 90%, 80%)',
     border: 'hsl(88, 63%, 63%)',
+  },
+  "warm": {
+    bg: 'hsl(55, 80%, 80%)',
+    box: '0 40px 50px hsl(55, 63%, 35%)',
+    text: 'hsl(53, 64%, 45%)',
+    bgLight: 'hsl(55, 95%, 97%)',
+    list: 'hsl(55, 90%, 90%)',
+    hover: 'hsl(55, 90%, 80%)',
+    border: 'hsl(55, 80%, 50%)',
   },
   "wind": {
     bg: 'hsl(0, 0%, 95%)',

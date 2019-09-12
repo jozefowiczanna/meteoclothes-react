@@ -59,7 +59,7 @@ const rootReducer = (state = initialState, action) => {
     {
       const category = action.payload.category;
       const id = action.payload.id;
-      const updatedClothes = {...state.clothes}
+      const updatedClothes = {...state.clothes};
       const row = [...state.clothes[action.payload.category]];
       row.splice(id, 1);
       updatedClothes[category] = row;
@@ -75,8 +75,8 @@ const rootReducer = (state = initialState, action) => {
       const item = action.payload.item;
       const newClothes = {...state.clothes};
       const row = [...state.clothes[action.payload.category]];
-      row.push(item)
-      newClothes[category] = row
+      row.push(item);
+      newClothes[category] = row;
       return {
         ...state,
         clothes: newClothes

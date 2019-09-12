@@ -21,7 +21,7 @@ export const conditionsStaticData = [
 		nr: 3,
 		name: "Ciepło",
     descriptions: ["Temperatura powyżej"],
-    icons: ['thermometer75', "arrowupGreen"],
+    icons: ['thermometer75', "arrowupYellow"],
 		unit: "°C",
     inputGroup: "tempmax",
     colorSet: "warm",

@@ -2,9 +2,6 @@ import React from 'react';
 import Where from 'components/Where/Where';
 import styled from 'styled-components';
 import Forecast from 'components/Forecast/Forecast';
-import Footer from 'components/Footer/Footer';
-import Button from "components/Button/Button";
-import citiesGeo from "data/citiesGeo";
 
 const StyledWrapper = styled.div`
   padding: 80px 34px;
@@ -13,13 +10,10 @@ const StyledWrapper = styled.div`
 `;
 
 const ForecastView = () => (
-  <>
-    <StyledWrapper>
-      <Where />
-      <Forecast />
-    </StyledWrapper>
-    <Footer />
-  </>
+  <StyledWrapper>
+    <Where />
+    <Forecast />
+  </StyledWrapper>
 );
 
 export default ForecastView;

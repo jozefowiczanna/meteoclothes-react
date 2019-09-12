@@ -4,6 +4,34 @@ import styled from 'styled-components';
 import ListTake from 'components/ListTake/ListTake';
 import Icon from 'components/Icon/Icon';
 
+import clearday from 'assets/icons/weather/colored/clearday.svg';
+import clearnight from 'assets/icons/weather/colored/clearnight.svg';
+import cloudy from 'assets/icons/weather/colored/cloudy.svg';
+import fog from 'assets/icons/weather/colored/fog.svg';
+import partlycloudyday from 'assets/icons/weather/colored/partlycloudyday.svg';
+import partlycloudynight from 'assets/icons/weather/colored/partlycloudynight.svg';
+import rain from 'assets/icons/weather/colored/rain.svg';
+import sleet from 'assets/icons/weather/colored/sleet.svg';
+import snow from 'assets/icons/weather/colored/snow.svg';
+import thunderstorm from 'assets/icons/weather/colored/thunderstorm.svg';
+import tornado from 'assets/icons/weather/colored/tornado.svg';
+import wind from 'assets/icons/weather/colored/wind.svg';
+
+const svgPaths = {
+  clearday,
+  clearnight,
+  cloudy,
+  fog,
+  partlycloudyday,
+  partlycloudynight,
+  rain,
+  sleet,
+  snow,
+  thunderstorm,
+  tornado,
+  wind,
+};
+
 const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -78,17 +106,17 @@ const CellRight = styled.td`
 
 const CardTake = styled.div`
   width: 42%;
-  padding: 34px;
+  padding: 34px 0;
   box-shadow: 0 10px 20px #cccccc;
-  border-left: 10px solid ${({ theme }) => theme["blue1"]};
-  /* border-left: 10px solid #c6c6c6;   */
+  /* border-left: 10px solid ${({ theme }) => theme["blue1"]}; */
+  border-left: 10px solid #c6c6c6;  
   border-radius: 5px;
   color: #353535;
   background: #fff;
 `;
 
 const HeadingBig = styled.h3`
-  margin-bottom: 34px;
+  margin: 0 0 20px 34px;
 `;
 
 function getDate(dayNr) {
@@ -109,17 +137,6 @@ function getDate(dayNr) {
 }
 
 class Day extends Component {
-  checkCondition(range, tempDay) {
-    if (tempDay < parseInt(range["temp-min"])) {
-      console.log("zimno")
-    } else {
-      console.log("ciepło")
-    }
-  }
-
-  componentDidUpdate() {
-    this.checkCondition(this.props.range, this.props.tempDay)
-  }
 
   
   render() {
@@ -138,10 +155,10 @@ class Day extends Component {
             </DateGroup>
             <IconGroup>
               <div>
-                <City>{city}{(range, tempDay) => this.checkCondition(range, tempDay)}</City>
+                <City>{city}</City>
                 <Temp>{tempDay}°C</Temp>
               </div>
-              <Icon icon={icon} big />
+              <Icon icon={svgPaths[icon]} big />
             </IconGroup>
               <Description>{dailySummary}</Description>
           </CardHeader>
@@ -182,35 +199,35 @@ class Day extends Component {
             (tempDay < range["tempmin"]*1) &&
             <ListTake
               clothes={clothes["Zimno"]}
-              description={`Temperatura poniżej ${range["tempmin"]}°C`}
+              colorSet={'cold'}
             />
           }
           {
             (tempDay >= range["tempmin"]) && (tempDay <= range["tempmax"]) &&
             <ListTake
               clothes={clothes["Umiarkowanie"]}
-              description={`Temperatura od ${range["tempmin"]}°C do ${range["tempmax"]}°C`}
+              colorSet={'mild'}
             />
           }
           {
             (tempDay > range["tempmax"]) &&
             <ListTake
               clothes={clothes["Ciepło"]}
-              description={`Temperatura powyżej ${range["tempmax"]}°C`}
+              colorSet={'warm'}
             />
           }
           {
             (rainSnow > range["rainmin"]) &&
             <ListTake
               clothes={clothes["Deszcz"]}
-              description={`Szansa opadów powyżej ${range["windmin"]}%`}
+              colorSet={'rain'}
             />
           }
           {
             (windSpeed > range["windmin"]) &&
             <ListTake
               clothes={clothes["Wiatr"]}
-              description={`Wiatr o prędkości powyżej ${range["windmin"]} km/h`}
+              colorSet={'wind'}
             />
           }
         </CardTake>
