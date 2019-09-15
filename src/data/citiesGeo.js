@@ -3,6 +3,7 @@ const citiesGeo = [
   {
     value: "amsterdam",
     name: "Amsterdam",
+    // lat: "x",
     lat: 52.366667,
     lon: 4.9
   },

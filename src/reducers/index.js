@@ -3,7 +3,6 @@ import {
   REMOVE_ITEM,
   ADD_ITEM,
   TOGGLE_MODAL,
-  GET_FORECAST_REQUEST,
   GET_FORECAST_SUCCESS,
   GET_FORECAST_FAILURE,
 } from 'actions';
@@ -20,7 +19,7 @@ const defClothes = {
   "Umiarkowanie": ["lekka czapka", "adidasy", "płaszcz"],
   "Ciepło": ["kapelusz", "t-shirt", "krótkie spodenki", "sandały"],
   "Wiatr": ["nauszniki", "kurtka przeciwwiatrowa"],
-  "Deszcz": ["parasol", "kalosze"]
+  "Opady": ["parasol", "kalosze"]
 }
 
 const initialState = {
@@ -88,6 +87,13 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         city: action.payload.name,
         data: action.payload.outputData,
+      };
+    }
+    case GET_FORECAST_FAILURE:
+    {
+      alert("Nie można połączyć się z serwerem. Spróbuj później.");
+      return {
+        ...state,
       };
     }
     default:

@@ -106,9 +106,8 @@ const CellRight = styled.td`
 
 const CardTake = styled.div`
   width: 42%;
-  padding: 34px 0;
+  padding: 34px;
   box-shadow: 0 10px 20px #cccccc;
-  /* border-left: 10px solid ${({ theme }) => theme["blue1"]}; */
   border-left: 10px solid #c6c6c6;  
   border-radius: 5px;
   color: #353535;
@@ -116,7 +115,7 @@ const CardTake = styled.div`
 `;
 
 const HeadingBig = styled.h3`
-  margin: 0 0 20px 34px;
+  margin: 0 0 20px 0;
 `;
 
 function getDate(dayNr) {
@@ -142,8 +141,6 @@ class Day extends Component {
   render() {
     
     const { city, dailySummary, tempDay, tempNight, clouds, humidity, rainSnow, windSpeed, dayNr, icon, range, clothes } = this.props;
-    
-    console.log(range)
     
     return (
       <StyledWrapper>
@@ -199,35 +196,30 @@ class Day extends Component {
             (tempDay < range["tempmin"]*1) &&
             <ListTake
               clothes={clothes["Zimno"]}
-              colorSet={'cold'}
             />
           }
           {
             (tempDay >= range["tempmin"]) && (tempDay <= range["tempmax"]) &&
             <ListTake
               clothes={clothes["Umiarkowanie"]}
-              colorSet={'mild'}
             />
           }
           {
             (tempDay > range["tempmax"]) &&
             <ListTake
               clothes={clothes["Ciepło"]}
-              colorSet={'warm'}
             />
           }
           {
             (rainSnow > range["rainmin"]) &&
             <ListTake
-              clothes={clothes["Deszcz"]}
-              colorSet={'rain'}
+              clothes={clothes["Opady"]}
             />
           }
           {
             (windSpeed > range["windmin"]) &&
             <ListTake
               clothes={clothes["Wiatr"]}
-              colorSet={'wind'}
             />
           }
         </CardTake>

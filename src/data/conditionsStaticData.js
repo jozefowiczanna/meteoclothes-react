@@ -31,7 +31,7 @@ export const conditionsStaticData = [
 		name: "Wiatr",
     descriptions: ["Prędkość wiatru powyżej"],
     icons: ['windCon', "arrowupGray"],
-		unit: "km/h",
+		unit: " km/h",
     inputGroup: "windmin",
     colorSet: "wind",
 	},

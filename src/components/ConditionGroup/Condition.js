@@ -71,8 +71,12 @@ const StyledCardHeader = styled.div`
   padding: 30px 30px 15px;
 `;
 
+const BottomWrapper = styled.div`
+  padding-bottom: 30px;
+`;
+
 const InputWrapper = styled.div`
-  padding: 30px;
+  padding: 30px 30px 0;
   display: flex;
   align-items: center;
 `;
@@ -99,16 +103,29 @@ const StyledAddButton = styled.button`
   }
 `;
 
+const StyledFieldError = styled.div`
+  font-weight: 600;
+  margin-top: 20px;
+  padding-left: 30px;
+  color: red;
+  font-size: 0.9em;
+`;
+
 class Condition extends Component {
   state = {
-    value: "1"
+    isValid: true,
   }
 
   inputRef = React.createRef();
 
+  checkIfValid = (e) => {
+    this.setState({ isValid: e.target.checkValidity()})
+  }
+
   render() {
 
     const { nr, name, descriptions, icons, unit, inputGroup, colorSet, toggleModal, range, addItem } = this.props;
+    const { isValid } = this.state;
     const val = range[inputGroup];
     const val2 = range["tempmax"];
 
@@ -121,7 +138,7 @@ class Condition extends Component {
             <StyledIconsWrapper>
               <Icon icon={svgPaths[icons[0]]} />
               <span>
-                {range[inputGroup]}°C
+                {range[inputGroup]}{unit}
                 {descriptions[1] &&
                   `-${val2}°C`
                 }
@@ -133,34 +150,41 @@ class Condition extends Component {
           <StyledCard colorSet={colorSet}>
             <StyledCardHeader>
               <div>
-                {`${descriptions[0]} ${val} ${unit}`}
-                {nr === 2 && ` ${descriptions[1]} ${val2} ${unit}`}
+                {`${descriptions[0]} ${val}${unit}`}
+                {nr === 2 && ` ${descriptions[1]} ${val2}${unit}`}
               </div>
               <EditIcon onClick={() => toggleModal("isFormModalOpen")} alt="edytuj warunki" />
             </StyledCardHeader>
     
             <div>
               <List category={name} colorSet={colorSet}/>
-              <InputWrapper>
-                <StyledLabel htmlFor="select-clothes">
-                  Dodaj własne:
-                </StyledLabel>
-                  <Input
-                    type="text"
-                    maxLength="50"
-                    ref={this.inputRef}
-                    pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
-                    data-error="Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka"
-                  />
-                  <StyledAddButton
-                    onClick={() => {
-                      addItem(name, this.inputRef.current.value);
-                    }}
-                    type="button"
-                  >
-                    <i className="fas fa-plus-square"></i>
-                  </StyledAddButton>
-              </InputWrapper>
+              <BottomWrapper>
+                <InputWrapper>
+                  <StyledLabel htmlFor="select-clothes">
+                    Dodaj własne:
+                  </StyledLabel>
+                    <Input
+                      type="text"
+                      maxLength="50"
+                      ref={this.inputRef}
+                      pattern="^[0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ][0-9A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ,\-\s]*$"
+                      onChange={(e) => this.checkIfValid(e)}
+                    />
+                    <StyledAddButton
+                      onClick={() => {
+                        const val = this.inputRef.current.value;
+                        isValid && (val.length > 0) &&
+                        addItem(name, val);
+                      }}
+                      type="button"
+                    >
+                      <i className="fas fa-plus-square"></i>
+                    </StyledAddButton>
+                </InputWrapper>
+                {!isValid && 
+                  <StyledFieldError>Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka</StyledFieldError>
+                }
+              </BottomWrapper>
             </div>
           </StyledCard>
     
