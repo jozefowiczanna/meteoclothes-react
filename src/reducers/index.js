@@ -5,6 +5,7 @@ import {
   TOGGLE_MODAL,
   GET_FORECAST_SUCCESS,
   GET_FORECAST_FAILURE,
+  RESET_VALUES,
 } from 'actions';
 
 const defRange = {
@@ -81,6 +82,14 @@ const rootReducer = (state = initialState, action) => {
         clothes: newClothes
       };
     }
+    case RESET_VALUES:
+    {
+      return {
+        ...state,
+        range: {...defRange},
+        clothes: {...defClothes},
+      }
+    }
     case GET_FORECAST_SUCCESS:
     {
       return {
@@ -91,7 +100,7 @@ const rootReducer = (state = initialState, action) => {
     }
     case GET_FORECAST_FAILURE:
     {
-      alert("Nie można połączyć się z serwerem. Spróbuj później.");
+      alert("Wystąpił błąd. Spróbuj później.");
       return {
         ...state,
       };

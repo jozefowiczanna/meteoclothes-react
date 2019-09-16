@@ -6,6 +6,7 @@ import Button from 'components/Button/Button';
 import CloseButton from 'components/CloseButton/CloseButton';
 import { connect } from 'react-redux';
 import { toggleModal as toggleModalAction } from 'actions';
+import { resetValues as resetValuesAction } from 'actions';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const StyledButton = styled(Button)`
   margin: 20px 20px 0;
 `;
 
-const SaveModal = ({ toggleModal, isSaveModalOpen }) => (
+const SaveModal = ({ toggleModal, isSaveModalOpen, resetValues }) => (
   <>
     {isSaveModalOpen &&
       <Modal>
@@ -25,7 +26,10 @@ const SaveModal = ({ toggleModal, isSaveModalOpen }) => (
         <StyledWrapper>
           <CloseButton onClick={() => toggleModal("isSaveModalOpen")} />
           <StyledButton>Zapisz</StyledButton>
-          <StyledButton onClick={toggleModal}>Resetuj</StyledButton>
+          <StyledButton onClick={() => {
+            resetValues();
+            toggleModal("isSaveModalOpen");
+          }}>Resetuj</StyledButton>
         </StyledWrapper>
       </Modal>
     }
@@ -35,7 +39,8 @@ const SaveModal = ({ toggleModal, isSaveModalOpen }) => (
 const mapStateToProps = ({isSaveModalOpen}) => ({isSaveModalOpen});
 
 const mapDispatchToProps = dispatch => ({
-  toggleModal: (whichModal) => dispatch(toggleModalAction(whichModal))
+  toggleModal: (whichModal) => dispatch(toggleModalAction(whichModal)),
+  resetValues: () => dispatch(resetValuesAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SaveModal);

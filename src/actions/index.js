@@ -7,6 +7,7 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const GET_FORECAST_SUCCESS = 'GET_FORECAST_SUCCESS';
 export const GET_FORECAST_FAILURE = 'GET_FORECAST_FAILURE';
+export const RESET_VALUES = 'RESET_VALUES';
 
 export const changeRange = (values) => ({type: CHANGE_RANGE, payload: {values}});
 
@@ -15,6 +16,8 @@ export const removeItem = (category, id) => ({type: REMOVE_ITEM, payload: {categ
 export const addItem = (category, item) => ({type: ADD_ITEM, payload: {category, item}});
 
 export const toggleModal = (modalState) => ({type: TOGGLE_MODAL, payload: {modalState}});
+
+export const resetValues = () => ({type: RESET_VALUES})
 
 export const getForecast = (name, lat, lon) => (dispatch) => {
   axios({
