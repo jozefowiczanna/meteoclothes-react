@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledListItem = styled.li`
   margin: 0;
@@ -28,5 +29,10 @@ const ListItem = ({ item, children, colorSet }) => (
     {children}
 	</StyledListItem>
 );
+
+ListItem.propTypes = {
+  item: PropTypes.string,
+  colorSet: PropTypes.string,
+}
 
 export default ListItem;

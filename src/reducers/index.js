@@ -58,14 +58,14 @@ const initialState = {
   isFormModalOpen: false,
   data: [
     {
-      clouds: "49%",
+      clouds: 49,
       dailySummary: "Średnie zachmurzenie w ciągu dnia.",
-      humidity: "70%",
+      humidity: 70,
       icon: "partly-cloudy-day",
-      rainSnow: "15%",
-      tempDay: "22°C",
-      tempNight: "15°C",
-      windSpeed: "21 km/h",
+      rainSnow: 15,
+      tempDay: 22,
+      tempNight: 15,
+      windSpeed: 11,
     },
   ],
 }

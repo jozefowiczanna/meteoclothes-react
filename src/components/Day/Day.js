@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import ListTake from 'components/ListTake/ListTake';
 import Icon from 'components/Icon/Icon';
+import PropTypes from 'prop-types';
 
 import clearday from 'assets/icons/weather/colored/clearday.svg';
 import clearnight from 'assets/icons/weather/colored/clearnight.svg';
@@ -261,6 +262,21 @@ class Day extends Component {
     )
   }
 };
+
+Day.propTypes = {
+  city: PropTypes.string,
+  dailySummary: PropTypes.string,
+  tempDay: PropTypes.number,
+  tempNight: PropTypes.number,
+  clouds: PropTypes.number,
+  humidity: PropTypes.number,
+  rainSnow: PropTypes.number,
+  windSpeed: PropTypes.number,
+  dayNr: PropTypes.number,
+  icon: PropTypes.string,
+  range: PropTypes.objectOf(PropTypes.string),
+  clothes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
+}
 
 const mapStateToProps = ({ range, clothes }) => ({ range, clothes });
 

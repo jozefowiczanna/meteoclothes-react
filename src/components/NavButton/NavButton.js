@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
   position: absolute;
@@ -73,5 +74,10 @@ const NavButton = ({ toggleNavFn, active }) => (
     </StyledButton>
   </StyledWrapper>
 );
+
+NavButton.propTypes = {
+  toggleNavFn: PropTypes.func,
+  active: PropTypes.string,
+}
 
 export default NavButton;

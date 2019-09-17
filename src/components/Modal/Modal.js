@@ -1,5 +1,6 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 
 const StyledWrapper = styled.div`
@@ -57,5 +58,10 @@ const Modal = ({ closeModal, children, modalType }) => (
     <StyledOverlay onClick={closeModal} />
   </>
 );
+
+Modal.propTypes = {
+  closeModal: PropTypes.func,
+  modalType: PropTypes.string,
+}
 
 export default Modal;

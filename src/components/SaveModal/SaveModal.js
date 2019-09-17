@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { toggleModal as toggleModalAction } from 'actions';
 import { resetValues as resetValuesAction } from 'actions';
 import { saveValues as saveValuesAction } from 'actions';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -39,6 +40,13 @@ const SaveModal = ({ toggleModal, isSaveModalOpen, resetValues, saveValues }) =>
     }
   </>
 );
+
+SaveModal.propTypes = {
+  toggleModal: PropTypes.func,
+  isSaveModalOpen: PropTypes.bool,
+  resetValues: PropTypes.func,
+  saveValues: PropTypes.func,
+}
 
 const mapStateToProps = ({isSaveModalOpen}) => ({isSaveModalOpen});
 

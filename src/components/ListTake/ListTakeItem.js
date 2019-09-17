@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const StyledListItem = styled.li`
   list-style: none;
@@ -19,5 +19,9 @@ const StyledListItem = styled.li`
 const ListTakeItem = ({ item }) => (
   <StyledListItem>{item}</StyledListItem>
 );
+
+ListTakeItem.propTypes = {
+  item: PropTypes.string,
+}
 
 export default ListTakeItem;

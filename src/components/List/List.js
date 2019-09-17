@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ListItem from './ListItem';
 import { removeItem as removeItemAction } from 'actions';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const StyledList = styled.ul`
   list-style-type: none;
@@ -45,6 +46,13 @@ const List = ({ clothes, category, removeItem, colorSet }) => {
     </StyledList>
   );
 };
+
+List.propTypes = {
+  clothes: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
+  category: PropTypes.string,
+  removeItem: PropTypes.func,
+  colorSet: PropTypes.string,
+}
 
 const mapStateToProps = ({ clothes }) => ({ clothes });
 
