@@ -32,7 +32,11 @@ const svgPaths = {
 
 const StyledSection = styled.section`
   background-color: ${({theme, colorSet}) => theme[colorSet]['bg']};
-  padding: 80px 0 110px;
+  padding: 80px 20px 110px;
+
+  @media (max-width: 600px) {
+    padding: 40px 10px 70px;
+  }
 `;
 
 const StyledWrapper = styled.div`
@@ -50,6 +54,11 @@ const StyledHeader = styled.div`
   font-weight: 700;
   font-size: 40px;
   color: ${({theme, colorSet}) => theme[colorSet]['text']};
+
+  @media (max-width: 600px) {
+    font-size: 30px;
+    display: block;
+  }
 `;
 
 const StyledIconsWrapper = styled.div`
@@ -106,7 +115,7 @@ const StyledAddButton = styled.button`
 const StyledFieldError = styled.div`
   font-weight: 600;
   margin-top: 20px;
-  padding-left: 30px;
+  padding: 0 30px;
   color: red;
   font-size: 0.9em;
 `;

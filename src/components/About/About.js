@@ -1,8 +1,8 @@
 import React from 'react';
-import Button from 'components/Button/Button';
 import styled from 'styled-components';
 import logoPng from '../../assets/images/logo_rain.png';
 import Logo from 'components/Logo/Logo';
+import { Link } from 'react-router-dom';
 
 const StyledSection = styled.section`
   padding: 3rem 1rem 2rem;
@@ -68,6 +68,27 @@ const StyledHeading = styled.h1`
   }
 `;
 
+const StyledLink = styled(Link)`
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 10px 30px;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 0.9rem;
+
+  border: 2px solid #27aae2;
+  background-color: #27aae2;
+  &:hover {
+    background: transparent;
+    color: #27aae2;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+`;
+
 const StyledLogoMobile = styled(Logo)`
   width: 100%;
   height: auto;
@@ -88,25 +109,23 @@ const StyledLogoMobile = styled(Logo)`
 `;
 
 const About = () => (
-    <>
-      <StyledOuterWrapper>
-        <StyledSection id="about">
-            <StyledWrapper>
-                <StyledHeading>
-                  METEOSZAFA
-                  <span>dopasuj ubrania do pogody</span>
-                </StyledHeading>
-                <StyledLogoMobile src={logoPng} alt="Meteoszafa logo" />
-                <div>
-                  <p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
-                  <p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
-                </div>
-                <Button type="button" secondary>Zaczynaj</Button>
-            </StyledWrapper>
-          <Logo src={logoPng} alt="Meteoszafa logo" />
-        </StyledSection>
-      </StyledOuterWrapper>
-    </>
+  <StyledOuterWrapper>
+    <StyledSection id="about">
+        <StyledWrapper>
+            <StyledHeading>
+              METEOSZAFA
+              <span>dopasuj ubrania do pogody</span>
+            </StyledHeading>
+            <StyledLogoMobile src={logoPng} alt="Meteoszafa logo" />
+              <div>
+                <p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
+                <p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
+              </div>
+            <StyledLink to="how#how">Zaczynaj</StyledLink>
+        </StyledWrapper>
+      <Logo src={logoPng} alt="Meteoszafa logo" />
+    </StyledSection>
+  </StyledOuterWrapper>
 );
 
 export default About;

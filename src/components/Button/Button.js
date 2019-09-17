@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Button = styled.button`
   border: none;
@@ -20,22 +20,6 @@ const Button = styled.button`
   &:active {
     transform: scale(0.9);
   }
-
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      border: 2px solid #27aae2;
-      background-color: #27aae2;
-
-      &:hover {
-        background: transparent;
-        color: #27aae2;
-      }
-
-      &:active {
-        transform: scale(0.9);
-      }
-    `}
 `;
 
 export default Button;

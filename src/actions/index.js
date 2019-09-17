@@ -8,6 +8,8 @@ export const TOGGLE_MODAL = 'TOGGLE_MODAL';
 export const GET_FORECAST_SUCCESS = 'GET_FORECAST_SUCCESS';
 export const GET_FORECAST_FAILURE = 'GET_FORECAST_FAILURE';
 export const RESET_VALUES = 'RESET_VALUES';
+export const SAVE_VALUES = 'SAVE_VALUES';
+export const LOAD_VALUES = 'LOAD_VALUES';
 
 export const changeRange = (values) => ({type: CHANGE_RANGE, payload: {values}});
 
@@ -17,7 +19,11 @@ export const addItem = (category, item) => ({type: ADD_ITEM, payload: {category,
 
 export const toggleModal = (modalState) => ({type: TOGGLE_MODAL, payload: {modalState}});
 
-export const resetValues = () => ({type: RESET_VALUES})
+export const resetValues = () => ({type: RESET_VALUES});
+
+export const saveValues = () => ({type: SAVE_VALUES});
+
+export const loadValues = () => ({type: LOAD_VALUES});
 
 export const getForecast = (name, lat, lon) => (dispatch) => {
   axios({
@@ -47,6 +53,7 @@ export const getForecast = (name, lat, lon) => (dispatch) => {
       });
     })
     .catch(err => {
+      console.log(err);
       dispatch({ type: GET_FORECAST_FAILURE });
     });
 };

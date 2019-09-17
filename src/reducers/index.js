@@ -6,6 +6,8 @@ import {
   GET_FORECAST_SUCCESS,
   GET_FORECAST_FAILURE,
   RESET_VALUES,
+  SAVE_VALUES,
+  LOAD_VALUES,
 } from 'actions';
 
 const defRange = {
@@ -21,6 +23,31 @@ const defClothes = {
   "Ciepło": ["kapelusz", "t-shirt", "krótkie spodenki", "sandały"],
   "Wiatr": ["nauszniki", "kurtka przeciwwiatrowa"],
   "Opady": ["parasol", "kalosze"]
+}
+
+function storageAvailable(type) {
+  var storage;
+  try {
+      storage = window[type];
+      var x = '__storage_test__';
+      storage.setItem(x, x);
+      storage.removeItem(x);
+      return true;
+  }
+  catch(e) {
+      return e instanceof DOMException && (
+          // everything except Firefox
+          e.code === 22 ||
+          // Firefox
+          e.code === 1014 ||
+          // test name field too, because code might not be present
+          // everything except Firefox
+          e.name === 'QuotaExceededError' ||
+          // Firefox
+          e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
+          // acknowledge QuotaExceededError only if there's something already stored
+          (storage && storage.length !== 0);
+  }
 }
 
 const initialState = {
@@ -84,12 +111,43 @@ const rootReducer = (state = initialState, action) => {
     }
     case RESET_VALUES:
     {
+      if (storageAvailable('localStorage')) {
+        localStorage.clear();
+      }
       return {
         ...state,
         range: {...defRange},
         clothes: {...defClothes},
       }
     }
+    case SAVE_VALUES:
+    {
+      if (storageAvailable('localStorage')) {
+        localStorage.setItem('range', JSON.stringify(state.range));
+        localStorage.setItem('clothes', JSON.stringify(state.clothes));
+      } else {
+        alert("Nie można zapisać ustawień - przeglądarka nie obsługuje local storage")
+      }
+      return {
+        ...state,
+     }
+    }
+    case LOAD_VALUES:
+    {
+      if ((storageAvailable('localStorage')) && localStorage.length > 0) {
+        const lsClothes = JSON.parse(localStorage.getItem('clothes'));
+        const lsRange = JSON.parse(localStorage.getItem('range'))
+        return {
+          ...state,
+          range: lsRange,
+          clothes: lsClothes,
+        }
+      } else {
+        return {
+          ...state,
+        }
+      }
+    } 
     case GET_FORECAST_SUCCESS:
     {
       return {

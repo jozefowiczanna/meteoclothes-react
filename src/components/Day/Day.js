@@ -36,6 +36,10 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+
+  @media (max-width: 800px) {
+    display: block;
+  }
 `;
 
 const CardWeather = styled.div`
@@ -45,10 +49,19 @@ const CardWeather = styled.div`
   border-radius: 5px;
   color: #353535;
   background: #fff;
+
+  @media (max-width: 800px) {
+    margin-bottom: 30px;
+    width: 100%;
+  }
 `;
 
 const CardHeader = styled.div`
   padding: 32px 32px 16px;
+
+  @media (max-width: 800px) {
+    padding: 15px 10px 15px;
+  }
 `;
 
 const DateGroup = styled.div`
@@ -61,6 +74,10 @@ const IconGroup = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const City = styled.div`
@@ -91,17 +108,29 @@ const Table = styled.table`
 const TableRow = styled.tr`
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
+
+  @media (max-width: 800px) {
+    font-size: 15px;
+  }
 `;
 
 const CellLeft = styled.td`
   padding: 12px 32px;
   line-height: 1.5;
+
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 const CellRight = styled.td`
   padding: 12px 32px;
   line-height: 1.5;
   text-align: right;
+
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
 `;
 
 const CardTake = styled.div`
@@ -112,6 +141,11 @@ const CardTake = styled.div`
   border-radius: 5px;
   color: #353535;
   background: #fff;
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 20px;
+  }
 `;
 
 const HeadingBig = styled.h3`

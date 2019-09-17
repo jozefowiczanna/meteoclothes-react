@@ -16,6 +16,10 @@ const Icon = styled.div`
       height: 68px;
     `
   }
+
+  @media (max-width: 600px) {
+    background-size: ${({ secondary }) => secondary ? '65% 65%' : '75% 75%' };
+  }
 `;
 
 export default Icon;

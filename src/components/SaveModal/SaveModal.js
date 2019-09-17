@@ -7,6 +7,7 @@ import CloseButton from 'components/CloseButton/CloseButton';
 import { connect } from 'react-redux';
 import { toggleModal as toggleModalAction } from 'actions';
 import { resetValues as resetValuesAction } from 'actions';
+import { saveValues as saveValuesAction } from 'actions';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -17,15 +18,18 @@ const StyledButton = styled(Button)`
   margin: 20px 20px 0;
 `;
 
-const SaveModal = ({ toggleModal, isSaveModalOpen, resetValues }) => (
+const SaveModal = ({ toggleModal, isSaveModalOpen, resetValues, saveValues }) => (
   <>
     {isSaveModalOpen &&
-      <Modal>
-        <Heading small>Zapisz ustawienia</Heading>
+      <Modal modalType={"save"}>
+        <Heading>Zapisz ustawienia</Heading>
         <p>Ustawienia zostaną zapisane na twoim urządzeniu. Kliknij "Resetuj", aby przywrócić ustawienia domyślne.</p>
         <StyledWrapper>
           <CloseButton onClick={() => toggleModal("isSaveModalOpen")} />
-          <StyledButton>Zapisz</StyledButton>
+          <StyledButton onClick={() => {
+            saveValues();
+            toggleModal("isSaveModalOpen");
+          }}>Zapisz</StyledButton>
           <StyledButton onClick={() => {
             resetValues();
             toggleModal("isSaveModalOpen");
@@ -41,6 +45,7 @@ const mapStateToProps = ({isSaveModalOpen}) => ({isSaveModalOpen});
 const mapDispatchToProps = dispatch => ({
   toggleModal: (whichModal) => dispatch(toggleModalAction(whichModal)),
   resetValues: () => dispatch(resetValuesAction()),
+  saveValues: () => dispatch(saveValuesAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SaveModal);
