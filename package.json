@@ -1,9 +1,8 @@
 {
   "name": "meteoszafa-react",
   "version": "0.1.0",
-  "private": true,
   "description": "Meteoszafa - dopasuj ubrania do pogody, aplikacja przebudowana za pomocą React",
-  "homepage": "https://jozefowiczanna.github.io/meteoszafa",
+  "homepage": "https://jozefowiczanna.github.io/meteoszafa-react/",
   "main": "index.js",
   "repository": {
     "type": "git"

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/meteoszafa/precache-manifest.6170b758d98436704945c1891799d13f.js"
+  "/meteoszafa-react/precache-manifest.a68047ef207d3fe4da1a707fa4f1d740.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/meteoszafa/index.html", {
+workbox.routing.registerNavigationRoute("/meteoszafa-react/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

@@ -29,10 +29,10 @@ class MainView extends Component {
         <ScrollToTop>
           <Nav />
           <Switch>
-            <Route exact path="/" component={About} />
-            <Route path="/how" component={HowView} />
-            <Route path="/conditions" component={ConditionsView} />
-            <Route path="/forecast" component={ForecastView} />
+            <Route exact path="/meteoszafa-react/" component={About} />
+            <Route path="/meteoszafa-react/how" component={HowView} />
+            <Route path="/meteoszafa-react/conditions" component={ConditionsView} />
+            <Route path="/meteoszafa-react/forecast" component={ForecastView} />
           </Switch>
           <SaveModal />
           <Form />

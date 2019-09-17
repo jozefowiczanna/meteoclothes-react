@@ -121,7 +121,7 @@ const About = () => (
                 <p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
                 <p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
               </div>
-            <StyledLink to="how#how">Zaczynaj</StyledLink>
+            <StyledLink to="/meteoszafa-react/how">Zaczynaj</StyledLink>
         </StyledWrapper>
       <Logo src={logoPng} alt="Meteoszafa logo" />
     </StyledSection>

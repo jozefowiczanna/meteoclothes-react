@@ -82,12 +82,13 @@ class Nav extends React.Component {
             <StyledInnerWrapper>
               <StyledList onClick={this.closeNav}>
                 <LinkItem href="/">O projekcie</LinkItem>
-                <LinkItem href="/how">Jak to działa?</LinkItem>
-                <LinkItem href="/conditions">Warunki</LinkItem>
+                <LinkItem href="/meteoszafa-react/how">Jak to działa?</LinkItem>
+                <LinkItem href="/meteoszafa-react/conditions">Warunki</LinkItem>
                 <li>
                   <StyledLink
                     href="#"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.preventDefault();
                       toggleModal("isFormModalOpen");
                     }}
                   >
@@ -96,16 +97,17 @@ class Nav extends React.Component {
                 </li>
                 <li>
                   <StyledLink
-                    href="#save"
-                    onClick={() => {
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
                       toggleModal("isSaveModalOpen");
                     }}
                   >
                     Zapisz/resetuj
                   </StyledLink>
                 </li>
-                <LinkItem href="/forecast">Dokąd pojedziesz?</LinkItem>
-                <LinkItem href="/forecast">Prognoza</LinkItem>
+                <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
+                <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
                 <li>
                   <StyledLink
                     href="https://jozefowiczanna.github.io/"
