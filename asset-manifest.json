@@ -1,6 +1,6 @@
 {
-  "main.js": "/meteoszafa-react/static/js/main.a736b064.chunk.js",
-  "main.js.map": "/meteoszafa-react/static/js/main.a736b064.chunk.js.map",
+  "main.js": "/meteoszafa-react/static/js/main.5a454e81.chunk.js",
+  "main.js.map": "/meteoszafa-react/static/js/main.5a454e81.chunk.js.map",
   "static/js/1.a8b32f26.chunk.js": "/meteoszafa-react/static/js/1.a8b32f26.chunk.js",
   "static/js/1.a8b32f26.chunk.js.map": "/meteoszafa-react/static/js/1.a8b32f26.chunk.js.map",
   "runtime~main.js": "/meteoszafa-react/static/js/runtime~main.7d89a537.js",
@@ -29,6 +29,6 @@
   "static/media/tornado.svg": "/meteoszafa-react/static/media/tornado.98c2d64a.svg",
   "static/media/wind.svg": "/meteoszafa-react/static/media/wind.d6b0318d.svg",
   "index.html": "/meteoszafa-react/index.html",
-  "precache-manifest.7987b31b73231a22d9439be54ead32c3.js": "/meteoszafa-react/precache-manifest.7987b31b73231a22d9439be54ead32c3.js",
+  "precache-manifest.3dad589679c7a6e77da829f816351ae8.js": "/meteoszafa-react/precache-manifest.3dad589679c7a6e77da829f816351ae8.js",
   "service-worker.js": "/meteoszafa-react/service-worker.js"
 }
