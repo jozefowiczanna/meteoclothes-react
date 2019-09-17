@@ -104,7 +104,7 @@ self.__precacheManifest = [
     "url": "/meteoszafa-react/static/media/wind.d6b0318d.svg"
   },
   {
-    "revision": "901d2b96e74769dac02e056e55b7b2f2",
+    "revision": "6495eeedd03f007401ba03886cc5d8df",
     "url": "/meteoszafa-react/index.html"
   }
 ];
