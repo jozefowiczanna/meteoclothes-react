@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Button from "components/Button/Button";
 import { connect } from 'react-redux';
 import { getForecast as getForecastAction } from 'actions';
+import PropTypes from 'prop-types';
 
 const StyledWrapper = styled.section`
   display: flex;
@@ -67,6 +68,10 @@ const Where = ({getForecast}) => (
     </Button>
   </StyledWrapper>
 );
+
+Where.propTypes = {
+  getForecast: PropTypes.func,
+}
 
 const mapDispatchToProps = dispatch => ({
   getForecast: (name, lat, lon) => dispatch(getForecastAction(name, lat, lon)),

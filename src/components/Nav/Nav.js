@@ -4,11 +4,7 @@ import NavButton from 'components/NavButton/NavButton';
 import styled from 'styled-components';
 import { toggleModal as toggleModalAction } from 'actions';
 import { connect } from 'react-redux';
-
-const StyledWrapper = styled.div`
-/* overflow-y: auto; */
-
-`;
+import PropTypes from 'prop-types';
 
 const StyledInnerWrapper = styled.div`
 position: absolute;
@@ -17,7 +13,6 @@ right: 0;
 height: 100%;
 width: 100%;
 overflow-y: auto;
-
 `;
 
 
@@ -31,7 +26,6 @@ const StyledNav = styled.nav`
   transition: all 0.3s;
   z-index: 999;
   transform: ${({active}) => active ? 'translateX(0)' : 'translateX(100%)'};
-  /* overflow-y: auto; */
 `;
 
 const StyledList = styled.ul`
@@ -74,56 +68,56 @@ class Nav extends React.Component {
     const active = isNavOpen ? "active" : "";
 
     return (
-      <StyledWrapper>
-        <StyledNav active={active}>
-          <>
-            <NavButton toggleNavFn={this.toggleNav} active={active}>
-            </NavButton>
-            <StyledInnerWrapper>
-              <StyledList onClick={this.closeNav}>
-                <LinkItem href="/">O projekcie</LinkItem>
-                <LinkItem href="/meteoszafa-react/how">Jak to działa?</LinkItem>
-                <LinkItem href="/meteoszafa-react/conditions">Warunki</LinkItem>
-                <li>
-                  <StyledLink
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleModal("isFormModalOpen");
-                    }}
-                  >
-                    Edytuj wartości
-                  </StyledLink>
-                </li>
-                <li>
-                  <StyledLink
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleModal("isSaveModalOpen");
-                    }}
-                  >
-                    Zapisz/resetuj
-                  </StyledLink>
-                </li>
-                <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
-                <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
-                <li>
-                  <StyledLink
-                    href="https://jozefowiczanna.github.io/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    O mnie
-                  </StyledLink>
-                </li>
-              </StyledList>
-            </StyledInnerWrapper>
-          </>
-        </StyledNav>
-      </StyledWrapper>
+      <StyledNav active={active}>
+          <NavButton toggleNavFn={this.toggleNav} active={active}>
+          </NavButton>
+          <StyledInnerWrapper>
+            <StyledList onClick={this.closeNav}>
+              <LinkItem href="/">O projekcie</LinkItem>
+              <LinkItem href="/meteoszafa-react/how">Jak to działa?</LinkItem>
+              <LinkItem href="/meteoszafa-react/conditions">Warunki</LinkItem>
+              <li>
+                <StyledLink
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleModal("isFormModalOpen");
+                  }}
+                >
+                  Edytuj wartości
+                </StyledLink>
+              </li>
+              <li>
+                <StyledLink
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleModal("isSaveModalOpen");
+                  }}
+                >
+                  Zapisz/resetuj
+                </StyledLink>
+              </li>
+              <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
+              <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
+              <li>
+                <StyledLink
+                  href="https://jozefowiczanna.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  O mnie
+                </StyledLink>
+              </li>
+            </StyledList>
+          </StyledInnerWrapper>
+      </StyledNav>
     );
   }
+}
+
+Nav.propTypes = {
+  toggleModal: PropTypes.func,
 }
 
 const mapStateToProps = ({ isNavOpen }) => ({ isNavOpen });

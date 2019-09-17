@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import About from 'components/About/About';
 import Nav from 'components/Nav/Nav';
 import HowView from 'views/HowView';
@@ -19,7 +19,6 @@ class MainView extends Component {
 
   componentDidMount() {
     this.props.loadValues();
-    console.log(this.props.location)
   }
 
   render() {

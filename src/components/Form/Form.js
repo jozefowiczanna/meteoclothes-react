@@ -9,6 +9,7 @@ import Input from 'components/Input/Input';
 import { Formik } from "formik";
 import { changeRange as changeRangeAction } from "actions";
 import { toggleModal as toggleModalAction } from "../../actions";
+import PropTypes from 'prop-types';
 
 const tempPattern = new RegExp("^([1-9]|[1-9][0-9]|[1][0][0])$");
 const tempPatternErrorMsg = "Dopuszczalne wartości: od -99 do 99";
@@ -206,6 +207,13 @@ class Form extends Component {
       </>
     );
   }
+}
+
+Form.propTypes = {
+  range: PropTypes.objectOf(PropTypes.string),
+  changeRange: PropTypes.func,
+  toggleModal: PropTypes.func,
+  isFormModalOpen: PropTypes.bool, 
 }
 
 const mapStateToProps = ({ range, isFormModalOpen }) => ({

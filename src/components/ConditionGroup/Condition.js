@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Input from 'components/Input/Input';
 import { toggleModal as toggleModalAction } from 'actions';
 import { addItem as addItemAction } from 'actions';
+import PropTypes from 'prop-types';
 
 import arrowdownBlue from 'assets/icons/weather/colored/arrowdown-blue.svg';
 import arrowupBlue from 'assets/icons/weather/colored/arrowup-blue.svg';
@@ -201,6 +202,20 @@ class Condition extends Component {
       </StyledSection>
     );
   }
+}
+
+Condition.propTypes = {
+  nr: PropTypes.number,
+  name: PropTypes.string,
+  descriptions: PropTypes.arrayOf(PropTypes.string),
+  icons: PropTypes.arrayOf(PropTypes.string),
+  unit: PropTypes.string,
+  inputGroup: PropTypes.string,
+  colorSet: PropTypes.string,
+  range: PropTypes.objectOf(PropTypes.string),
+  toggleModal: PropTypes.func,
+  addItem: PropTypes.func,
+
 }
 
 const mapStateToProps = ({range}) => ({range});

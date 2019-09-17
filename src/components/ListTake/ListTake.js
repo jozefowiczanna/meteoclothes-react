@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ListTakeItem from 'components/ListTake/ListTakeItem';
+import PropTypes from 'prop-types';
 
 const StyledList = styled.ul`
   margin: 0;
@@ -18,5 +19,9 @@ const ListTake = ({ clothes }) => (
     }
   </StyledList>
 );
+
+ListTake.propTypes = {
+  clothes: PropTypes.arrayOf(PropTypes.string),
+}
 
 export default ListTake;

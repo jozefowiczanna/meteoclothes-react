@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Where = ({value, name}) => (
+const Option = ({value, name}) => (
   <option value={value}>{name}</option>
 );
 
-export default Where;
+Option.propTypes = {
+  value: PropTypes.string,
+  name: PropTypes.string,
+}
+
+export default Option;
