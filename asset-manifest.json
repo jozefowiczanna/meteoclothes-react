@@ -1,8 +1,8 @@
 {
-  "main.js": "/meteoszafa/static/js/main.17202a4b.chunk.js",
-  "main.js.map": "/meteoszafa/static/js/main.17202a4b.chunk.js.map",
-  "static/js/1.dee11154.chunk.js": "/meteoszafa/static/js/1.dee11154.chunk.js",
-  "static/js/1.dee11154.chunk.js.map": "/meteoszafa/static/js/1.dee11154.chunk.js.map",
+  "main.js": "/meteoszafa/static/js/main.2fac5488.chunk.js",
+  "main.js.map": "/meteoszafa/static/js/main.2fac5488.chunk.js.map",
+  "static/js/1.db45ea1e.chunk.js": "/meteoszafa/static/js/1.db45ea1e.chunk.js",
+  "static/js/1.db45ea1e.chunk.js.map": "/meteoszafa/static/js/1.db45ea1e.chunk.js.map",
   "runtime~main.js": "/meteoszafa/static/js/runtime~main.c195ce8e.js",
   "runtime~main.js.map": "/meteoszafa/static/js/runtime~main.c195ce8e.js.map",
   "static/media/logo_rain.png": "/meteoszafa/static/media/logo_rain.dd9e8e38.png",
@@ -29,6 +29,6 @@
   "static/media/tornado.svg": "/meteoszafa/static/media/tornado.98c2d64a.svg",
   "static/media/wind.svg": "/meteoszafa/static/media/wind.d6b0318d.svg",
   "index.html": "/meteoszafa/index.html",
-  "precache-manifest.6170b758d98436704945c1891799d13f.js": "/meteoszafa/precache-manifest.6170b758d98436704945c1891799d13f.js",
+  "precache-manifest.f89ea7c89dd530a0b6883adbf9535eec.js": "/meteoszafa/precache-manifest.f89ea7c89dd530a0b6883adbf9535eec.js",
   "service-worker.js": "/meteoszafa/service-worker.js"
 }
