@@ -76,6 +76,8 @@ class Nav extends React.Component {
               <LinkItem href="/meteoszafa-react/">O projekcie</LinkItem>
               <LinkItem href="/meteoszafa-react/how">Jak to działa?</LinkItem>
               <LinkItem href="/meteoszafa-react/conditions">Warunki</LinkItem>
+              <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
+              <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
               <li>
                 <StyledLink
                   href="#"
@@ -98,8 +100,6 @@ class Nav extends React.Component {
                   Zapisz/resetuj
                 </StyledLink>
               </li>
-              <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
-              <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
               <li>
                 <StyledLink
                   href="https://jozefowiczanna.github.io/"

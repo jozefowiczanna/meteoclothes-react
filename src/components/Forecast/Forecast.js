@@ -11,8 +11,13 @@ const StyledSection = styled.section`
 
 const Forecast = ({ data, city }) => (
   <StyledSection id="forecast">
-    <Heading>Pakuj się</Heading>
-    <p>Poniżej znajduje się 8-dniowa prognoza pogody dla wybranego miasta wraz z listą rzeczy do zabrania.</p>
+    {
+      data.length > 1 &&
+      <>
+        <Heading>Pakuj się</Heading>
+        <p>Poniżej znajduje się 8-dniowa prognoza pogody dla wybranego miasta wraz z listą rzeczy do zabrania.</p>
+      </>
+    }
     {
       data.length > 1 &&
       data.map((item, index) => (
