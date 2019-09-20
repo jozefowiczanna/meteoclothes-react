@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/meteoszafa-react/precache-manifest.c64dafda325be39c783bda18cf0d7efc.js"
+  "/meteoszafa-react/precache-manifest.5bb38f082ee8ae096f8b7dbb2c02332a.js"
 );
 
 workbox.clientsClaim();
