@@ -47,15 +47,15 @@ const How = () => (
     <StyledSection id="how">
       <StyledWrapper>
           <div>
-            <Heading>Jak to działa?</Heading>
-            <p>Do dyspozycji masz pięć warunków atmosferycznych, których zakres wartości możesz zmieniać według własnego uznania. Pierwsze trzy dotyczą temperatury, czwarty prędkości wiatru, piąty szansy opadów w procentach.</p>
-            <p>Do każdego warunku możesz dodać listę ubrań, które chcesz założyć jeśli dany warunek zostanie spełniony.</p>
-            <p>Gdy ustalisz i spersonalizujesz listy ubrań, pozostanie Ci wybranie celu podróży.</p>
-            <p>Po kliknięciu "sprawdź prognozę" pojawi się 8-dniowa prognoza wraz z listą ubrań, które spełniają określone warunki.</p>
-            <p>Jeśli chcesz zapisać ustawienia w pamięci przeglądarki lub zresetować je do wartości domyślnych, wybierz z menu opcję Zapisz/resetuj</p>
+            <Heading>How does it work?</Heading>
+            <p>You have five weather conditions at your disposal, the range of which you can change as you like. The first three conditions apply to the temperature, and the next two to wind speed and probability of precipitation.</p>
+            <p>For each condition, you can add a list of clothes that you want to wear if the condition is met.</p>
+            <p>Once you set up and personalize your clothes list, you'll have to choose your destination.</p>
+            <p>After clicking "check forecast" an 8-day forecast will appear with a list of clothes that meet certain conditions.</p>
+            <p>If you want to save the settings in the browser's memory or reset them to their default values, select the Save / reset option from the menu.</p>
           </div>
           <StyledButtonWrapper>
-            <StyledLink to="/meteoszafa-react/conditions">Ustal warunki</StyledLink>
+            <StyledLink to="/meteoszafa-react/conditions">Set conditions</StyledLink>
           </StyledButtonWrapper>
       </StyledWrapper>
     </StyledSection>

@@ -73,11 +73,11 @@ class Nav extends React.Component {
           </NavButton>
           <StyledInnerWrapper>
             <StyledList onClick={this.closeNav}>
-              <LinkItem href="/meteoszafa-react/">O projekcie</LinkItem>
-              <LinkItem href="/meteoszafa-react/how">Jak to działa?</LinkItem>
-              <LinkItem href="/meteoszafa-react/conditions">Warunki</LinkItem>
-              <LinkItem href="/meteoszafa-react/forecast">Dokąd pojedziesz?</LinkItem>
-              <LinkItem href="/meteoszafa-react/forecast">Prognoza</LinkItem>
+              <LinkItem href="/meteoszafa-react/">About</LinkItem>
+              <LinkItem href="/meteoszafa-react/how">How it works</LinkItem>
+              <LinkItem href="/meteoszafa-react/conditions">Conditions</LinkItem>
+              <LinkItem href="/meteoszafa-react/forecast">Destination</LinkItem>
+              <LinkItem href="/meteoszafa-react/forecast">Forecast</LinkItem>
               <li>
                 <StyledLink
                   href="#"
@@ -86,7 +86,7 @@ class Nav extends React.Component {
                     toggleModal("isFormModalOpen");
                   }}
                 >
-                  Edytuj wartości
+                  Edit values
                 </StyledLink>
               </li>
               <li>
@@ -97,7 +97,7 @@ class Nav extends React.Component {
                     toggleModal("isSaveModalOpen");
                   }}
                 >
-                  Zapisz/resetuj
+                  Save/Reset
                 </StyledLink>
               </li>
               <li>
@@ -106,7 +106,7 @@ class Nav extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  O mnie
+                  Author
                 </StyledLink>
               </li>
             </StyledList>

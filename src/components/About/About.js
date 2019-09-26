@@ -113,15 +113,15 @@ const About = () => (
     <StyledSection id="about">
         <StyledWrapper>
             <StyledHeading>
-              METEOSZAFA
-              <span>dopasuj ubrania do pogody</span>
+              METEOCLOTHES
+              <span>match clothes to weather conditions</span>
             </StyledHeading>
             <StyledLogoMobile src={logoPng} alt="Meteoszafa logo" />
               <div>
-                <p>Pewnie znasz ten scenariusz: Planujesz wyjazd i ogarnia cię niechęć na myśl, że musisz się spakować. Jaka będzie pogoda? Upał? Deszcz? A może silny wiatr? Musisz sprawdzić prognozę pogody, a potem zastanowić się co zabrać...</p>
-                <p>A co jeśli mógłbyś zrobić taką listę tylko raz i więcej nie zawracać sobie głowy? Określasz co lubisz nosić w zależności od warunków atmosferycznych i zapisujesz swoje preferencje. Następnie wybierasz cel podróży i otrzymujesz prognozę wraz z listą ubrań, które powinieneś zabrać.</p>
+                <p>You are planning a trip but you have no idea what to wear. What is the weather going to be like? Heat? Rain? Or maybe a strong wind? You need to check the weather forecast and then think about what to take...</p>
+                <p>And what if you could do such a list only once? You specify what you like to wear depending on weather conditions and save your preferences. Then you can choose a destination and get a forecast along with a list of clothes that you should take.</p>
               </div>
-            <StyledLink to="/meteoszafa-react/how">Zaczynaj</StyledLink>
+            <StyledLink to="/meteoszafa-react/how">Go!</StyledLink>
         </StyledWrapper>
       <Logo src={logoPng} alt="Meteoszafa logo" />
     </StyledSection>

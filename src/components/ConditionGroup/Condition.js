@@ -138,7 +138,6 @@ class Condition extends Component {
     const { isValid } = this.state;
     const val = range[inputGroup];
     const val2 = range["tempmax"];
-
     
     return (
       <StyledSection colorSet={colorSet}>
@@ -171,7 +170,7 @@ class Condition extends Component {
               <BottomWrapper>
                 <InputWrapper>
                   <StyledLabel htmlFor="select-clothes">
-                    Dodaj własne:
+                    Add:
                   </StyledLabel>
                     <Input
                       type="text"
@@ -192,7 +191,7 @@ class Condition extends Component {
                     </StyledAddButton>
                 </InputWrapper>
                 {!isValid && 
-                  <StyledFieldError>Dopuszczalne wartości: maksymalnie 50 znaków, w tym cyfry, litery, znaki spacji, myślnika i przecinka</StyledFieldError>
+                  <StyledFieldError>Valid values: up to 50 characters, including numbers, letters, spaces, dash, and comma</StyledFieldError>
                 }
               </BottomWrapper>
             </div>

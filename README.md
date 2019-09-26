@@ -1,9 +1,9 @@
-# Meteoszafa
+# Meteoclothes
 
-### Wykorzystane technologie: React + Redux, Styled Components
+### React + Redux, Styled Components
 
-Aplikacja umożliwia stworzenie i zapisanie listy ciuchów na bazie preferencji dotyczących pogody. Użytkownik sam decyduje co założy w razie upału, mrozu, silnego wiatru lub deszczu. Po zapisaniu ustawień, wybiera cel podróży i otrzymuje 8-dniową prognozę wraz z listą ubrań dostosowanych do warunków atmosferycznych.
+The application allows you to create and save a list of clothes based on weather preferences. User can decide what to wear on a hot, cold, windy or rainy day.
 
-- wykorzystanie API Dark Sky
-- możliwość zapisania własnych ustawień (Local Storage)
-- projekt logo i layout strony
+- forecast from Dark Sky API
+- possibility to set and store settings on user's device (Local Storage)
+- my logo and layout
