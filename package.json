@@ -1,7 +1,7 @@
 {
-  "name": "meteoszafa-react",
+  "name": "meteoclothes-react",
   "version": "0.1.0",
-  "description": "Meteoszafa - dopasuj ubrania do pogody, aplikacja przebudowana za pomocą React",
+  "description": "Meteoclothes - match clothes to weather conditions",
   "homepage": "https://jozefowiczanna.github.io/meteoclothes-react/",
   "main": "index.js",
   "repository": {
@@ -45,7 +45,7 @@
     "not op_mini all"
   ],
   "keywords": [
-    "meteoszafa",
+    "meteoclothes",
     "React",
     "weather",
     "app"

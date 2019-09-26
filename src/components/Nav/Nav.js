@@ -73,11 +73,11 @@ class Nav extends React.Component {
           </NavButton>
           <StyledInnerWrapper>
             <StyledList onClick={this.closeNav}>
-              <LinkItem href="/meteoszafa-react/">About</LinkItem>
-              <LinkItem href="/meteoszafa-react/how">How it works</LinkItem>
-              <LinkItem href="/meteoszafa-react/conditions">Conditions</LinkItem>
-              <LinkItem href="/meteoszafa-react/forecast">Destination</LinkItem>
-              <LinkItem href="/meteoszafa-react/forecast">Forecast</LinkItem>
+              <LinkItem href="/meteoclothes-react/">About</LinkItem>
+              <LinkItem href="/meteoclothes-react/how">How it works</LinkItem>
+              <LinkItem href="/meteoclothes-react/conditions">Conditions</LinkItem>
+              <LinkItem href="/meteoclothes-react/forecast">Destination</LinkItem>
+              <LinkItem href="/meteoclothes-react/forecast">Forecast</LinkItem>
               <li>
                 <StyledLink
                   href="#"

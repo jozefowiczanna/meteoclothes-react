@@ -116,14 +116,14 @@ const About = () => (
               METEOCLOTHES
               <span>match clothes to weather conditions</span>
             </StyledHeading>
-            <StyledLogoMobile src={logoPng} alt="Meteoszafa logo" />
+            <StyledLogoMobile src={logoPng} alt="Meteoclothes logo" />
               <div>
                 <p>You are planning a trip but you have no idea what to wear. What is the weather going to be like? Heat? Rain? Or maybe a strong wind? You need to check the weather forecast and then think about what to take...</p>
                 <p>And what if you could do such a list only once? You specify what you like to wear depending on weather conditions and save your preferences. Then you can choose a destination and get a forecast along with a list of clothes that you should take.</p>
               </div>
-            <StyledLink to="/meteoszafa-react/how">Go!</StyledLink>
+            <StyledLink to="/meteoclothes-react/how">Go!</StyledLink>
         </StyledWrapper>
-      <Logo src={logoPng} alt="Meteoszafa logo" />
+      <Logo src={logoPng} alt="Meteoclothes logo" />
     </StyledSection>
   </StyledOuterWrapper>
 );

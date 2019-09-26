@@ -55,7 +55,7 @@ const How = () => (
             <p>If you want to save the settings in the browser's memory or reset them to their default values, select the Save / reset option from the menu.</p>
           </div>
           <StyledButtonWrapper>
-            <StyledLink to="/meteoszafa-react/conditions">Set conditions</StyledLink>
+            <StyledLink to="/meteoclothes-react/conditions">Set conditions</StyledLink>
           </StyledButtonWrapper>
       </StyledWrapper>
     </StyledSection>

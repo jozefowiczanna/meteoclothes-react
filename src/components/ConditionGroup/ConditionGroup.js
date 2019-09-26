@@ -53,7 +53,7 @@ class ConditionGroup extends React.Component {
           ))}
         </StyledSection>
         <StyledButtonWrapper>
-          <StyledLink to="/meteoszafa-react/forecast">Choose destination</StyledLink>
+          <StyledLink to="forecast">Choose destination</StyledLink>
         </StyledButtonWrapper>
       </>
     );
