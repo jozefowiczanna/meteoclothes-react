@@ -23,18 +23,18 @@ const SaveModal = ({ toggleModal, isSaveModalOpen, resetValues, saveValues }) =>
   <>
     {isSaveModalOpen &&
       <Modal modalType={"save"}>
-        <Heading>Zapisz ustawienia</Heading>
-        <p>Ustawienia zostaną zapisane na twoim urządzeniu. Kliknij "Resetuj", aby przywrócić ustawienia domyślne.</p>
+        <Heading>Save settings</Heading>
+        <p>The settings will be saved to your device. Click "Reset" to restore the default settings.</p>
         <StyledWrapper>
           <CloseButton onClick={() => toggleModal("isSaveModalOpen")} />
           <StyledButton onClick={() => {
             saveValues();
             toggleModal("isSaveModalOpen");
-          }}>Zapisz</StyledButton>
+          }}>Save</StyledButton>
           <StyledButton onClick={() => {
             resetValues();
             toggleModal("isSaveModalOpen");
-          }}>Resetuj</StyledButton>
+          }}>Reset</StyledButton>
         </StyledWrapper>
       </Modal>
     }

@@ -1,8 +1,8 @@
 export const conditionsStaticData = [
 	{
 		nr: 1,
-		name: "Zimno",
-    descriptions: ["Temperatura poniżej"],
+		name: "Cold",
+    descriptions: ["Temperature below "],
     icons: ['thermometer25', "arrowdownBlue"],
 		unit: "°C",
     inputGroup: "tempmin",
@@ -10,8 +10,8 @@ export const conditionsStaticData = [
 	},
 	{
 		nr: 2,
-		name: "Umiarkowanie",
-    descriptions: ["Temperatura od", "do"],
+		name: "Moderate",
+    descriptions: ["Temperature between", "and"],
     icons: ['thermometer50'],
 		unit: "°C",
     inputGroup: "tempmin",
@@ -19,8 +19,8 @@ export const conditionsStaticData = [
 	},
 	{
 		nr: 3,
-		name: "Ciepło",
-    descriptions: ["Temperatura powyżej"],
+		name: "Warm",
+    descriptions: ["Temperature above"],
     icons: ['thermometer75', "arrowupYellow"],
 		unit: "°C",
     inputGroup: "tempmax",
@@ -28,8 +28,8 @@ export const conditionsStaticData = [
 	},
 	{
 		nr: 4,
-		name: "Wiatr",
-    descriptions: ["Prędkość wiatru powyżej"],
+		name: "Wind",
+    descriptions: ["Minimum wind speed"],
     icons: ['windCon', "arrowupGray"],
 		unit: " km/h",
     inputGroup: "windmin",
@@ -37,8 +37,8 @@ export const conditionsStaticData = [
 	},
 	{
 		nr: 5,
-		name: "Opady",
-    descriptions: ["Szansa opadów powyżej"],
+		name: "Precipitation",
+    descriptions: ["Probability of precipitation"],
     icons: ['rainCon', "arrowupBlue"],
 		unit: "%",
 		defClothes: ["parasol", "kalosze"],

@@ -159,7 +159,7 @@ function getDate(dayNr) {
 		const output = (nr.length === 1) ? "0" + nr : nr;
 		return output;
 	}
-	const weekdays = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+	const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 	let date = new Date();
 	date.setDate(date.getDate() + dayNr);
 	const day = leadingZero(date.getDate());
@@ -182,7 +182,7 @@ class Day extends Component {
         <CardWeather>
           <CardHeader>
             <DateGroup>
-              <div>Dzień {dayNr+1}</div>
+              <div>Day {dayNr+1}</div>
               <div>{getDate(dayNr)}</div>
             </DateGroup>
             <IconGroup>
@@ -198,27 +198,27 @@ class Day extends Component {
             <Table>
               <tbody>
                 <TableRow>
-                  <CellLeft>Temperatura w dzień</CellLeft>
+                  <CellLeft>Day temperature</CellLeft>
                   <CellRight>{tempDay}°C</CellRight>
                 </TableRow>
                 <TableRow>
-                  <CellLeft>Temperatura w nocy</CellLeft>
+                  <CellLeft>Night temperature</CellLeft>
                   <CellRight>{tempNight}°C</CellRight>
                 </TableRow>
                 <TableRow>
-                  <CellLeft>Zachmurzenie</CellLeft>
+                  <CellLeft>Cloud cover</CellLeft>
                   <CellRight>{clouds}%</CellRight>
                 </TableRow>
                 <TableRow>
-                  <CellLeft>Wilgotność</CellLeft>
+                  <CellLeft>Humidity</CellLeft>
                   <CellRight>{humidity}%</CellRight>
                 </TableRow>
                 <TableRow>
-                  <CellLeft>Szansa opadów</CellLeft>
+                  <CellLeft>Precipation probability</CellLeft>
                   <CellRight>{rainSnow}%</CellRight>
                 </TableRow>
                 <TableRow>
-                  <CellLeft>Prędkość wiatru</CellLeft>
+                  <CellLeft>Wind speed</CellLeft>
                   <CellRight>{windSpeed} {'km/h'}</CellRight>
                 </TableRow>
               </tbody>
@@ -226,35 +226,35 @@ class Day extends Component {
           </div>
         </CardWeather>
         <CardTake>
-          <HeadingBig>Zabierz: </HeadingBig>
+          <HeadingBig>Take: </HeadingBig>
           {
             (tempDay < range["tempmin"]*1) &&
             <ListTake
-              clothes={clothes["Zimno"]}
+              clothes={clothes["Cold"]}
             />
           }
           {
             (tempDay >= range["tempmin"]) && (tempDay <= range["tempmax"]) &&
             <ListTake
-              clothes={clothes["Umiarkowanie"]}
+              clothes={clothes["Moderate"]}
             />
           }
           {
             (tempDay > range["tempmax"]) &&
             <ListTake
-              clothes={clothes["Ciepło"]}
+              clothes={clothes["Warm"]}
             />
           }
           {
             (rainSnow > range["rainmin"]) &&
             <ListTake
-              clothes={clothes["Opady"]}
+              clothes={clothes["Precipitation"]}
             />
           }
           {
             (windSpeed > range["windmin"]) &&
             <ListTake
-              clothes={clothes["Wiatr"]}
+              clothes={clothes["Wind"]}
             />
           }
         </CardTake>

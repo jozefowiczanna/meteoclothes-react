@@ -42,14 +42,12 @@ const StyledLabel = styled.label`
   
 const Where = ({getForecast}) => (
   <StyledWrapper id="where">
-    <StyledHeading>Dokąd pojedziesz?</StyledHeading>
+    <StyledHeading>Where will you go?</StyledHeading>
     <p>
-      Jeśli spersonalizowałeś listę ubrań, pozostaje Ci tylko wybranie celu
-      podróży. Liczba miast jest na razie ograniczona, głównie do stolic państw
-      europejskich.
+    If you personalize your clothes list, all you have to do is choose your destination. The number of cities is currently limited, mainly to European capitals.
     </p>
     <StyledBox>
-      <StyledLabel htmlFor="select-city">Wybierz miasto:</StyledLabel>
+      <StyledLabel htmlFor="select-city">Choose a city:</StyledLabel>
       <StyledInput as="select" name="select-city" id="select-city">
         {citiesGeo.map(item => {
           return <Option {...item} key={item.value} />;
@@ -64,7 +62,7 @@ const Where = ({getForecast}) => (
       }}
       data-target="#forecast"
     >
-        Sprawdź prognozę
+        Get forecast
     </Button>
   </StyledWrapper>
 );

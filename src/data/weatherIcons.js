@@ -1,54 +1,54 @@
-//  ikony pogody - główna wartość obiektów odpowiada nazwie z API; wartość "icon" odpowiada nazwie grafiki
+// weather icons - the main value of the objects corresponds to the name from the API; the "icon" value corresponds to the graphic name
 
 
 const weatherIcons = {
 	"clear-day" : {
 		icon : "sun",
-		pl : "Bezchmurnie"
+		pl : "Sun"
 	},
 	"clear-night" : {
 		icon : "moon-50",
-		pl : "Bezchmurnie"
+		pl : "Clear weather"
 	},
 	"rain" : {
 		icon : "cloud-rain",
-		pl : "Deszcz"
+		pl : "Rain"
 	},
 	"snow" : {
 		icon : "cloud-snow",
-		pl : "Śnieg"
+		pl : "Snow"
 	},
 	"sleet" : {
 		icon : "cloud-drizzle",
-		pl : "Deszcz ze śniegiem"
+		pl : "Sleet"
 	},
 	"wind" : {
 		icon : "wind",
-		pl : "Wiatr"
+		pl : "Wind"
 	},
 	"fog" : {
 		icon : "fog",
-		pl : "Mgła"
+		pl : "Fog"
 	},
 	"cloudy" : {
 		icon : "cloud",
-		pl : "Zachmurzenie"
+		pl : "Cloudy"
 	},
 	"partly-cloudy-day" : {
 		icon : "cloud-sun",
-		pl : "Średnie zachmurzenie"
+		pl : "Partly cloudy day"
 	},
 	"partly-cloudy-night" : {
 		icon : "cloud-moon",
-		pl : "Średnie zachmurzenie"
+		pl : "Partly cloudy night"
 	},
 	"hail" : {
-		icon : "sun",
-		pl : "Grad"
+		icon : "Hail",
+		pl : "hail"
 	},
 	"thunderstorm" : {
 		icon : "cloud-lightning",
-		pl : "Burzowo"
+		pl : "Thunderstorm"
 	},
 	"tornado" : {
 		icon : "tornado",

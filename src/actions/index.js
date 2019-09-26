@@ -27,7 +27,7 @@ export const loadValues = () => ({type: LOAD_VALUES});
 
 export const getForecast = (name, lat, lon) => (dispatch) => {
   axios({
-      url: `https://api.darksky.net/forecast/82dd8519eb0941abad295fda7a5ed88e/${lat},${lon}?lang=pl&units=ca`,
+      url: `https://api.darksky.net/forecast/82dd8519eb0941abad295fda7a5ed88e/${lat},${lon}?lang=en&units=ca`,
       adapter: jsonpAdapter
     })
     .then((res) => {

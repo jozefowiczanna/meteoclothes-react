@@ -68,32 +68,32 @@ class Form extends Component {
       <>
       {isFormModalOpen &&
         <Modal>
-          <Heading>Zakresy wartości:</Heading>
+          <Heading>Range of values:</Heading>
           <Formik
             initialValues={range}
             validate={values => {
               let errors = {};
 
               if (!values.tempmin) {
-                errors.tempmin = "Pole wymagane";
+                errors.tempmin = "Required";
               } else if (!tempPattern.test(values.tempmin)) {
                 errors.tempmin = tempPatternErrorMsg;
               }
 
               if (!values.tempmax) {
-                errors.tempmax = "Pole wymagane";
+                errors.tempmax = "Required";
               } else if (!tempPattern.test(values.tempmax)) {
                 errors.tempmax = tempPatternErrorMsg;
               }
 
               if (!values.windmin) {
-                errors.windmin = "Pole wymagane";
+                errors.windmin = "Required";
               } else if (!windPattern.test(values.windmin)) {
                 errors.windmin = windPatternErrorMsg;
               }
 
               if (!values.rainmin) {
-                errors.rainmin = "Pole wymagane";
+                errors.rainmin = "Required";
               } else if (!rainPattern.test(values.rainmin)) {
                 errors.rainmin = rainPatternErrorMsg;
               }
@@ -115,7 +115,7 @@ class Form extends Component {
             }) => (
               <StyledForm onSubmit={handleSubmit}>
                 <StyledFormRow>
-                  <label htmlFor="tempmin">Min. temperatura</label>
+                  <label htmlFor="tempmin">Min temperature</label>
                   <Input
                     narrow
                     autoComplete="off"
@@ -135,7 +135,7 @@ class Form extends Component {
                 </StyledFormRow>
 
                 <StyledFormRow>
-                  <label htmlFor="tempmax">Max. temperatura</label>
+                  <label htmlFor="tempmax">Max temperature</label>
                   <Input
                     narrow
                     autoComplete="off"
@@ -146,7 +146,7 @@ class Form extends Component {
                     onBlur={handleBlur}
                     value={values.tempmax}
                   />
-                  <StyledSpan>km/h</StyledSpan>
+                  <StyledSpan>°C</StyledSpan>
                   {
                     <StyledFieldError>
                       {errors.tempmax && touched.tempmax && errors.tempmax}
@@ -156,7 +156,7 @@ class Form extends Component {
 
                 <StyledFormRow>
                   <label htmlFor="windmin">
-                    Prędkość wiatru powyżej
+                  Min wind speed
                   </label>
                   <Input
                     narrow
@@ -168,7 +168,7 @@ class Form extends Component {
                     onBlur={handleBlur}
                     value={values.windmin}
                   />
-                  <StyledSpan>km/h</StyledSpan>
+                  <StyledSpan>kph</StyledSpan>
                   {
                     <StyledFieldError>
                       {errors.windmin && touched.windmin && errors.windmin}
@@ -178,7 +178,7 @@ class Form extends Component {
 
                 <StyledFormRow>
                   <label htmlFor="rainmin">
-                    Szansa opadów powyżej
+                  Probability of precipitation
                   </label>
                   <Input
                     narrow
@@ -197,7 +197,7 @@ class Form extends Component {
                     </StyledFieldError>
                   }
                 </StyledFormRow>
-                <StyledButton type="submit">Zapisz zmiany</StyledButton>
+                <StyledButton type="submit">Save changes</StyledButton>
                 <CloseButton onClick={() => toggleModal("isFormModalOpen")} type="button" />
               </StyledForm>
             )}

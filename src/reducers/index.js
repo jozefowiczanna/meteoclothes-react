@@ -18,11 +18,11 @@ const defRange = {
 }
 
 const defClothes = {
-  "Zimno": ["czapka zimowa", "gruby szalik", "kurtka zimowa", "buty zimowe", "rękawiczki"],
-  "Umiarkowanie": ["lekka czapka", "adidasy", "płaszcz"],
-  "Ciepło": ["kapelusz", "t-shirt", "krótkie spodenki", "sandały"],
-  "Wiatr": ["nauszniki", "kurtka przeciwwiatrowa"],
-  "Opady": ["parasol", "kalosze"]
+  "Cold": ["winter hat", "thick scarf", "winter jacket", "winter shoes", "gloves"],
+  "Moderate": ["light cap", "sneakers", "coat"],
+  "Warm": ["straw hat", "T-shirt", "shorts", "sandals"],
+  "Precipitation": ["ear muffs", "wind jacket"],
+  "Wind": ["umbrella", "rain boots"]
 }
 
 function storageAvailable(type) {
@@ -126,7 +126,7 @@ const rootReducer = (state = initialState, action) => {
         localStorage.setItem('range', JSON.stringify(state.range));
         localStorage.setItem('clothes', JSON.stringify(state.clothes));
       } else {
-        alert("Nie można zapisać ustawień - przeglądarka nie obsługuje local storage")
+        alert("Settings cannot be saved - browser does not support local storage")
       }
       return {
         ...state,
@@ -134,13 +134,33 @@ const rootReducer = (state = initialState, action) => {
     }
     case LOAD_VALUES:
     {
-      if ((storageAvailable('localStorage')) && localStorage.length > 0) {
+      if ((storageAvailable('localStorage')) && localStorage.length > 0 && localStorage.getItem('clothes') && localStorage.getItem('range')) {
         const lsClothes = JSON.parse(localStorage.getItem('clothes'));
         const lsRange = JSON.parse(localStorage.getItem('range'))
-        return {
-          ...state,
-          range: lsRange,
-          clothes: lsClothes,
+        if (
+            lsClothes["Cold"] &&
+            lsClothes["Moderate"] &&
+            lsClothes["Precipitation"] &&
+            lsClothes["Warm"] &&
+            lsClothes["Wind"] &&
+            lsRange["rainmin"] &&
+            lsRange["tempmax"] &&
+            lsRange["tempmin"] &&
+            lsRange["windmin"]
+          ) {
+          console.log("Data loaded correctly.");
+          return {
+            ...state,
+            range: lsRange,
+            clothes: lsClothes,
+          }
+        } else {
+          console.log("Could not load data from local storage. Default settings will be restored.");
+          return {
+            ...state,
+            range: {...defRange},
+            clothes: {...defClothes},
+          }
         }
       } else {
         return {
@@ -158,7 +178,7 @@ const rootReducer = (state = initialState, action) => {
     }
     case GET_FORECAST_FAILURE:
     {
-      alert("Wystąpił błąd. Spróbuj później.");
+      alert("An error occured. Please try again later.");
       return {
         ...state,
       };

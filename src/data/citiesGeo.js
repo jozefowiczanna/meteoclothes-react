@@ -8,8 +8,8 @@ const citiesGeo = [
     lon: 4.9
   },
   {
-    value: "andora",
-    name: "Andora",
+    value: "andorra",
+    name: "Andorra",
     lat: 42.5,
     lon: 1.5
   },
@@ -26,14 +26,14 @@ const citiesGeo = [
     lon: 71.416667
   },
   {
-    value: "ateny",
-    name: "Ateny",
+    value: "athens",
+    name: "Athens",
     lat: 38,
     lon: 23.716667
   },
   {
-    value: "belgrad",
-    name: "Belgrad",
+    value: "belgrade",
+    name: "Belgrade",
     lat: 44.8,
     lon: 20.466667
   },
@@ -44,32 +44,32 @@ const citiesGeo = [
     lon: 13.408333
   },
   {
-    value: "berno",
-    name: "Berno",
+    value: "bern",
+    name: "Bern",
     lat: 46.94798,
     lon: 7.44743
   },
   {
-    value: "bratyslawa",
-    name: "Bratysława",
+    value: "bratislava",
+    name: "Bratislava",
     lat: 48.146825,
     lon: 17.107239
   },
   {
-    value: "bruksela",
-    name: "Bruksela",
+    value: "brussels",
+    name: "Brussels",
     lat: 50.833333,
     lon: 4.35
   },
   {
-    value: "budapeszt",
-    name: "Budapeszt",
+    value: "budapest",
+    name: "Budapest",
     lat: 47.5,
     lon: 19.05
   },
   {
-    value: "bukareszt",
-    name: "Bukareszt",
+    value: "bucharest",
+    name: "Bucharest",
     lat: 44.416667,
     lon: 26.1
   },
@@ -92,44 +92,44 @@ const citiesGeo = [
     lon: 24.933333
   },
   {
-    value: "kair",
-    name: "Kair",
+    value: "cairo",
+    name: "Cairo",
     lat: 30.0626,
     lon: 31.2497
   },
   {
-    value: "kijow",
-    name: "Kijów",
+    value: "kiev",
+    name: "Kiev",
     lat: 50.45,
     lon: 30.5
   },
   {
-    value: "kiszynow",
-    name: "Kiszyniów",
+    value: "chisinau",
+    name: "Chisinau",
     lat: 47.013889,
     lon: 28.85
   },
   {
-    value: "kopenhaga",
-    name: "Kopenhaga",
+    value: "copenhagen",
+    name: "Copenhagen",
     lat: 55.666667,
     lon: 12.566667
   },
   {
-    value: "krakow",
-    name: "Kraków",
+    value: "cracow",
+    name: "Cracow",
     lat: 50.061389,
     lon: 19.938333
   },
   {
-    value: "lizbona",
-    name: "Lizbona",
+    value: "lisbon",
+    name: "Lisbon",
     lat: 38.736946,
     lon: -9.142685
   },
   {
-    value: "londyn",
-    name: "Londyn",
+    value: "london",
+    name: "London",
     lat: 51.509865,
     lon: -0.118092
   },
@@ -140,32 +140,32 @@ const citiesGeo = [
     lon: 14.507778
   },
   {
-    value: "luksemburg",
-    name: "Luksemburg",
+    value: "luxembourg",
+    name: "Luxembourg",
     lat: 49.610556,
     lon: 6.132778
   },
   {
-    value: "madryt",
-    name: "Madryt",
+    value: "madrid",
+    name: "Madrid",
     lat: 40.417778,
     lon: -3.694722
   },
   {
     value: "minsk",
-    name: "Mińsk",
+    name: "Minsk",
     lat: 53.9,
     lon: 27.55
   },
   {
-    value: "monako",
-    name: "Monako",
+    value: "monaco",
+    name: "Monaco",
     lat: 43.731245,
     lon: 7.419744
   },
   {
-    value: "moskwa",
-    name: "Moskwa",
+    value: "moscow",
+    name: "Moscow",
     lat: 55.75,
     lon: 37.616667
   },
@@ -182,8 +182,8 @@ const citiesGeo = [
     lon: 10.737997
   },
   {
-    value: "paryz",
-    name: "Paryż",
+    value: "paris",
+    name: "Paris",
     lat: 48.866667,
     lon: 2.35
   },
@@ -200,8 +200,8 @@ const citiesGeo = [
     lon: 16.9252
   },
   {
-    value: "praga",
-    name: "Praga",
+    value: "prague",
+    name: "Prague",
     lat: 50.087778,
     lon: 14.421111
   },
@@ -212,14 +212,14 @@ const citiesGeo = [
     lon: -21.827774
   },
   {
-    value: "ryga",
-    name: "Ryga",
+    value: "riga",
+    name: "Riga",
     lat: 56.966667,
     lon: 24.133333
   },
   {
-    value: "rzym",
-    name: "Rzym",
+    value: "rome",
+    name: "Rome",
     lat: 41.893056,
     lon: 12.482778
   },
@@ -230,8 +230,8 @@ const citiesGeo = [
     lon: 12.44845
   },
   {
-    value: "sarajewo",
-    name: "Sarajewo",
+    value: "sarajevo",
+    name: "Sarajevo",
     lat: 43.85,
     lon: 18.366667
   },
@@ -242,8 +242,8 @@ const citiesGeo = [
     lon: 21.433333
   },
   {
-    value: "sztokholm",
-    name: "Sztokholm",
+    value: "stockholm",
+    name: "Stockholm",
     lat: 59.333333,
     lon: 18.05
   },
@@ -272,26 +272,26 @@ const citiesGeo = [
     lon: 14.5125
   },
   {
-    value: "warszawa",
-    name: "Warszawa",
+    value: "warsaw",
+    name: "Warsaw",
     lat: 52.232222,
     lon: 21.008333
   },
   {
-    value: "wieden",
-    name: "Wiedeń",
+    value: "vienna",
+    name: "Vienna",
     lat: 48.216667,
     lon: 16.366667
   },
   {
-    value: "wilno",
-    name: "Wilno",
+    value: "vilnius",
+    name: "Vilnius",
     lat: 54.683333,
     lon: 25.283333
   },
   {
-    value: "zagrzeb",
-    name: "Zagrzeb",
+    value: "zagreb",
+    name: "Zagreb",
     lat: 45.8,
     lon: 15.966667
   }

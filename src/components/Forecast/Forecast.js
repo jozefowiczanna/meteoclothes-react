@@ -14,8 +14,8 @@ const Forecast = ({ data, city }) => (
     {
       data.length > 1 &&
       <>
-        <Heading>Pakuj się</Heading>
-        <p>Poniżej znajduje się 8-dniowa prognoza pogody dla wybranego miasta wraz z listą rzeczy do zabrania.</p>
+        <Heading>Pack yourself</Heading>
+        <p>Below is an 8 day weather forecast for the selected city with a list of things to take.</p>
       </>
     }
     {
