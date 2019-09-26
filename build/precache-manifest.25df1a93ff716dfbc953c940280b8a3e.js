@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "18f6e9ae7f40771ff85f",
-    "url": "/meteoclothes-react/static/js/main.18f6e9ae.chunk.js"
+    "revision": "78398507418391a76a59",
+    "url": "/meteoclothes-react/static/js/main.78398507.chunk.js"
   },
   {
     "revision": "4ea7898a6b140717f018",
@@ -104,7 +104,7 @@ self.__precacheManifest = [
     "url": "/meteoclothes-react/static/media/wind.d6b0318d.svg"
   },
   {
-    "revision": "7165fffc0b4069c3a18923ea1d72c4cb",
+    "revision": "eb8de22307c767e46c7bc201234cca0c",
     "url": "/meteoclothes-react/index.html"
   }
 ];
