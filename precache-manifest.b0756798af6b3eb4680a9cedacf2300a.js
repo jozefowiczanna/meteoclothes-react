@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "3fead2615d1fa3185e39",
-    "url": "/meteoszafa-react/static/js/main.3fead261.chunk.js"
+    "revision": "18f6e9ae7f40771ff85f",
+    "url": "/meteoszafa-react/static/js/main.18f6e9ae.chunk.js"
   },
   {
-    "revision": "8c153825b4aad91bc00b",
-    "url": "/meteoszafa-react/static/js/1.8c153825.chunk.js"
+    "revision": "908beb2ab6b002234cb7",
+    "url": "/meteoszafa-react/static/js/1.908beb2a.chunk.js"
   },
   {
     "revision": "7d89a537735ae45d6686",
@@ -104,7 +104,7 @@ self.__precacheManifest = [
     "url": "/meteoszafa-react/static/media/wind.d6b0318d.svg"
   },
   {
-    "revision": "eb8a6ac52fb55079c44b78a04bdd40ed",
+    "revision": "0b2eeee40d6f63da27e2dda39a4239d2",
     "url": "/meteoszafa-react/index.html"
   }
 ];
