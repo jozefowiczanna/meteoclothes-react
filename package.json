@@ -15,7 +15,7 @@
     "gh-pages": "^2.1.1",
     "jquery": "^3.4.1",
     "jsonp": "^0.2.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^7.1.1",
